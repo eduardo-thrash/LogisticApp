@@ -12,4 +12,5 @@ public class RoomBusinessRules {
     public void GetSRoomResume(){}
 
     //Lo que sea
+    //Lo que sea en rama nueva
 }
