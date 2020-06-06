@@ -1,11 +1,9 @@
 package com.example.logisticappproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.activities.delegate.MaterialDetailActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent launcherActivity = new Intent(this, MaterialDetailActivity.class);
+        Intent launcherActivity = new Intent(this, DepartureRegisterActivity.class);
         startActivity(launcherActivity);
     }
 }
