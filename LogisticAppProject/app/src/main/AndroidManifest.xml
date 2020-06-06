@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationTestActivity"></activity>
+        <activity android:name=".SiteResumeActivity"></activity>
+        <activity android:name=".NotificationTestActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".AyudaUser" />
         <activity android:name=".Coordinador" />
