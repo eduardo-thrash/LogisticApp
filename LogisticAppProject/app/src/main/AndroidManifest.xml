@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.activities.delegate.ScanMaterialActivity"></activity>
+        <activity android:name=".MaterialSearchActivity"></activity>
+        <activity android:name="com.example.activities.delegate.ScanMaterialActivity" />
         <activity android:name="com.example.activities.delegate.MaterialDetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
