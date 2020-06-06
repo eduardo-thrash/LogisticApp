@@ -10,4 +10,6 @@ public class RoomBusinessRules {
     public int CanceledTest;
 
     public void GetSRoomResume(){}
+
+    //Lo que sea
 }
