@@ -12,6 +12,10 @@
 
         <activity android:name=".LoginActivity"></activity>
 
+        <activity android:name=".Coordinador"></activity>
+        <activity android:name=".Delegado"></activity>
+        <activity android:name=".Distribuidor"></activity>
+        <activity android:name=".JefeSalon"></activity>
         <activity android:name=".CambioClave"></activity>
         <activity android:name=".SiteNotificationDetailByRoomActivity"></activity>
         <activity android:name=".RoomResumeActivity" />
