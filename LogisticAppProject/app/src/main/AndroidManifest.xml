@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DepartureRegisterActivity"></activity>
+        <activity android:name=".ScanMaterialActivity"></activity>
+        <activity android:name=".DepartureRegisterActivity" />
         <activity android:name=".MaterialSearchActivity" />
         <activity android:name="com.example.activities.delegate.ScanMaterialActivity" />
         <activity android:name="com.example.activities.delegate.MaterialDetailActivity" />
