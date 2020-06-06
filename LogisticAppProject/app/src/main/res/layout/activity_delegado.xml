@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Delegado">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        tools:context=".CambioClave">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tMensajeDelegado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="246dp"
+            android:layout_marginLeft="246dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="ROL: Delegado "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/bReportarNovedadMaterial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.174" />
+
+        <Button
+            android:id="@+id/bReportarNovedadMaterial"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_add"
+            android:onClick="Novedad"
+            android:text="Reportar Novedad Material"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+            app:layout_constraintVertical_bias="0.161" />
+
+        <Button
+            android:id="@+id/bResumenSItio"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_compass"
+            android:onClick="ResumenSitio"
+            android:text="Resumen del SItio"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+            app:layout_constraintVertical_bias="0.313" />
+
+        <Button
+            android:id="@+id/bAyuda"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_directions"
+            android:onClick="Ayuda"
+            android:text="Ayuda"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+            app:layout_constraintVertical_bias="0.464" />
+
+        <Button
+            android:id="@+id/bCambiarContrasena"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_manage"
+            android:onClick="CambioClave"
+            android:text="Cambiar Contraseña"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+            app:layout_constraintVertical_bias="0.617" />
+
+        <Button
+            android:id="@+id/bSalir"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_lock_power_off"
+            android:text="Salir"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+            app:layout_constraintVertical_bias="0.768"
+            android:onClick="Cerrar"/>
+
+        <Button
+            android:id="@+id/bConsultarMaterial"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_agenda"
+            android:onClick="ConsultaMaterial"
+            android:text="Consultar Material"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tMensajeDelegado"
+            app:layout_constraintVertical_bias="0.026" />
+
+        <Button
+            android:id="@+id/bEscanearMaterial"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="369dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_camera"
+            android:onClick="Escanear"
+            android:text="Escanear Material"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tMensajeDelegado"
+            app:layout_constraintVertical_bias="0.154" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/tPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Nueva Contraseña"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tPassword2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.904"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <EditText
+        android:id="@+id/tPassword3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Aceptar"
+        app:layout_constraintTop_toBottomOf="@+id/tPassword2"
+        tools:layout_editor_absoluteX="141dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="Asignar Nueva Contraseña"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tPassword1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645"
+        tools:layout_editor_absoluteX="76dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>
