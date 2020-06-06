@@ -12,6 +12,7 @@
 
         <activity android:name=".LoginActivity"></activity>
 
+        <activity android:name=".AyudaUser"></activity>
         <activity android:name=".Coordinador"></activity>
         <activity android:name=".Delegado"></activity>
         <activity android:name=".Distribuidor"></activity>
