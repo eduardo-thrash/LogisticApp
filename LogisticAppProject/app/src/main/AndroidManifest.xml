@@ -12,6 +12,7 @@
 
         <activity android:name=".LoginActivity"></activity>
 
+        <activity android:name=".CambioClave"></activity>
         <activity android:name=".SiteNotificationDetailByRoomActivity"></activity>
         <activity android:name=".RoomResumeActivity" />
 
