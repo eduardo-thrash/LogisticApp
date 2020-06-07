@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RoomDetailActivity"></activity>
+        <activity android:name=".TestDetailActivity"></activity>
+        <activity android:name=".TestScanActivity" />
+        <activity android:name=".TestSearchActivity" />
+        <activity android:name=".MaterialDetailActivity" />
+        <activity android:name=".RoomDetailActivity" />
         <activity android:name=".RoomNotification" />
         <activity android:name=".SiteNotificationsDetailsActivity" />
         <activity android:name=".NotificationBySiteActivity" />
