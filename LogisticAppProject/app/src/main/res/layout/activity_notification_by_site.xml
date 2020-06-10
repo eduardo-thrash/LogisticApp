@@ -108,13 +108,15 @@
                 android:id="@+id/tbrNovS1C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
 
             <TextView
                 android:id="@+id/tbrNovS1C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
         </TableRow>
 
         <TableRow
@@ -126,13 +128,15 @@
                 android:id="@+id/tbrNovS2C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
 
             <TextView
                 android:id="@+id/tbrNovS2C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
         </TableRow>
 
         <TableRow
@@ -144,13 +148,15 @@
                 android:id="@+id/tbrNovS3C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
 
             <TextView
                 android:id="@+id/tbrNovS3C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
         </TableRow>
 
         <TableRow
@@ -162,13 +168,15 @@
                 android:id="@+id/tbrNovS4C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
 
             <TextView
                 android:id="@+id/tbrNovS4C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteNotificationsDetailsActivity" />
         </TableRow>
     </TableLayout>
 
