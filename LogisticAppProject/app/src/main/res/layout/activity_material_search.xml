@@ -103,13 +103,15 @@
                 android:id="@+id/tbr1C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
 
             <TextView
                 android:id="@+id/tbr1C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
         </TableRow>
 
         <TableRow
@@ -122,13 +124,15 @@
                 android:id="@+id/tbr2C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
 
             <TextView
                 android:id="@+id/tbr2C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
         </TableRow>
 
         <TableRow
@@ -141,13 +145,15 @@
                 android:id="@+id/tbr3C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
 
             <TextView
                 android:id="@+id/tbr3C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
         </TableRow>
 
         <TableRow
@@ -160,13 +166,15 @@
                 android:id="@+id/tbr4C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
 
             <TextView
                 android:id="@+id/tbr4C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="143dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="MaterialDetailActivity" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
