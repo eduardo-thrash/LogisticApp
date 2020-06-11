@@ -98,7 +98,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
 
             <TextView
@@ -106,7 +106,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
         </TableRow>
 
@@ -120,7 +120,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
 
             <TextView
@@ -128,7 +128,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
         </TableRow>
 
@@ -142,7 +142,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
 
             <TextView
@@ -150,7 +150,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
         </TableRow>
 
@@ -164,7 +164,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
 
             <TextView
@@ -172,7 +172,7 @@
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="154dp"
                 android:layout_height="match_parent"
-                android:onClick="DetalleExamen"
+                android:onClick="TestDetailActivity"
                 tools:ignore="OnClick" />
         </TableRow>
     </TableLayout>
