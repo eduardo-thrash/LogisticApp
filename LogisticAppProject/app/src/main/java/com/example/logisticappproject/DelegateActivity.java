@@ -8,18 +8,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class CambioClave extends AppCompatActivity {
+import com.example.logisticappproject.R;
+
+public class DelegateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cambio_clave);
-    }
-
-    public void Cambiar (View view){
-
-
-        }
+        setContentView(R.layout.activity_delegate);
 
     }
 
+
+}

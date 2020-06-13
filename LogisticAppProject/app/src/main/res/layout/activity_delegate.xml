@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Delegado">
+    tools:context=".DelegateActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:layout_marginBottom="8dp"
             android:drawableLeft="@android:drawable/ic_menu_manage"
             android:onClick="CambioClave"
-            android:text="Cambiar Contraseña"
+            android:text="Cambiar Contraseï¿½a"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -174,7 +174,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="Nueva Contraseña"
+        android:hint="Nueva Contraseï¿½a"
         android:inputType="textPassword"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/tPassword2"
@@ -190,7 +190,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
-        android:hint="Confirmar Contraseña"
+        android:hint="Confirmar Contraseï¿½a"
         android:inputType="textPassword"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -223,7 +223,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Asignar Nueva Contraseña"
+        android:text="Asignar Nueva Contraseï¿½a"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tPassword1"

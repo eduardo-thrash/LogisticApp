@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".HelpActivity"></activity>
         <activity android:name=".TestDetailActivity" />
         <activity android:name=".TestScanActivity" />
         <activity android:name=".TestSearchActivity" />

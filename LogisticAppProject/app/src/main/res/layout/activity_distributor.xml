@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Coordinador">
+    tools:context=".DistributorActivity">
 
     <Button
-        android:id="@+id/bSalir2"
+        android:id="@+id/bSalir3"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="369dp"
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_lock_power_off"
         android:onClick="Cerrar"
         android:text="Salir"
@@ -19,18 +20,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena2"
+        app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena"
         app:layout_constraintVertical_bias="0.004" />
 
     <Button
-        android:id="@+id/bCambiarContrasena2"
+        android:id="@+id/bCambiarContrasena"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="369dp"
         android:layout_height="56dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@android:drawable/ic_menu_manage"
         android:onClick="CambioClave"
-        android:text="Cambiar Contraseña"
+        android:text="Cambiar ContraseÃ±a"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +42,9 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="369dp"
         android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="12dp"
 
+        android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_directions"
         android:onClick="Ayuda"
         android:text="Ayuda"
@@ -51,53 +52,36 @@
         app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarNvedadesSitio"
+        app:layout_constraintTop_toBottomOf="@+id/bRegistrarDespacho"
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
-        android:id="@+id/bConsultarSitioCoo"
+        android:id="@+id/bRegistrarDespacho"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="369dp"
         android:layout_height="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginBottom="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_day"
-        android:onClick="ConsultarSitios"
-        android:text="Consultar Sitio"
+        android:drawableLeft="@android:drawable/ic_menu_mapmode"
+        android:onClick="ResgitrarDespacho"
+        android:text="Registrar Despacho"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bConsultarNvedadesSitio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeCoordinador" />
-
-    <Button
-        android:id="@+id/bConsultarNvedadesSitio"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:onClick="NovedadesSitio"
-        android:text="Consultar Novedades del  Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bAyuda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeDelegado" />
+        app:layout_constraintTop_toBottomOf="@+id/tMensajeDistribuidor" />
 
     <TextView
-        android:id="@+id/tMensajeCoordinador"
+        android:id="@+id/tMensajeDistribuidor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="40dp"
-        android:text="ROL: Coordinador"
+        android:layout_marginStart="283dp"
+        android:layout_marginLeft="283dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="612dp"
+        android:text="ROL: Distribuidor"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bConsultarSitioCoo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

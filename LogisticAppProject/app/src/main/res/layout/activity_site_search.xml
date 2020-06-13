@@ -159,13 +159,15 @@
                 android:id="@+id/tbrSitio1C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
 
             <TextView
                 android:id="@+id/tbrSitio1C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
         </TableRow>
 
         <TableRow
@@ -177,13 +179,15 @@
                 android:id="@+id/tbrSitio2C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
 
             <TextView
                 android:id="@+id/tbrSitio2C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
         </TableRow>
 
         <TableRow
@@ -195,13 +199,15 @@
                 android:id="@+id/tbrSitio3C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
 
             <TextView
                 android:id="@+id/tbrSitio3C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
         </TableRow>
 
         <TableRow
@@ -213,13 +219,15 @@
                 android:id="@+id/tbrSitio4C1"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
 
             <TextView
                 android:id="@+id/tbrSitio4C2"
                 style="@android:style/Widget.Holo.Spinner"
                 android:layout_width="164dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="SiteResumeActivity" />
         </TableRow>
     </TableLayout>
 
