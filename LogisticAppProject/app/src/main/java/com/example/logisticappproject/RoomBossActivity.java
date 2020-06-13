@@ -16,6 +16,8 @@ public class RoomBossActivity extends AppCompatActivity {
         setContentView(R.layout.activity_room_boss);
     }
 
+    //Conexiones layouts Room Boss
+
     public void PasswordChangeActivity (View view){
         Intent PasswordChangeActivity = new Intent(this, com.example.logisticappproject.PasswordChangeActivity.class);
         startActivity(PasswordChangeActivity);
