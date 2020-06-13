@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="Cerrar"
     tools:context=".RoomBossActivity">
 
     <Button
@@ -15,15 +14,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_lock_power_off"
-        android:onClick="Cerrar"
         android:text="Salir"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
-        app:layout_constraintVertical_bias="0.771"
-        />
+        app:layout_constraintVertical_bias="0.771" />
 
     <Button
         android:id="@+id/bCambiarContrasena"
@@ -33,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_manage"
-        android:onClick="CambioClave"
+        android:onClick="PasswordChangeActivity"
         android:text="Cambiar Contraseña"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bSalir"
@@ -51,7 +48,7 @@
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_directions"
 
-        android:onClick="Ayuda"
+        android:onClick="HelpActivity"
         android:text="Ayuda"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
@@ -68,6 +65,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_compass"
+        android:onClick="RoomResumeActivity"
         android:text="Resumen de Salón"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bAyuda"
@@ -84,6 +82,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:onClick="SiteNotificationDetailByRoomActivity"
         android:text="Consultar Novedad de Salón"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bResumenSalon"
@@ -98,6 +97,7 @@
         android:layout_width="369dp"
         android:layout_height="56dp"
         android:drawableLeft="@android:drawable/ic_menu_camera"
+        android:onClick="TestScanActivity"
         android:text="Escanear Examen"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         android:drawableLeft="@android:drawable/ic_menu_agenda"
+        android:onClick="TestSearchActivity"
         android:text="Consultar Examen"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bEscanearExamen"
@@ -126,6 +127,7 @@
         android:layout_height="56dp"
         android:layout_marginBottom="4dp"
         android:drawableLeft="@android:drawable/ic_menu_add"
+        android:onClick="SiteNotificationsDetailsActivity"
         android:text="Reportar Novedad de Examen"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bConsultarNovedadSalon"
