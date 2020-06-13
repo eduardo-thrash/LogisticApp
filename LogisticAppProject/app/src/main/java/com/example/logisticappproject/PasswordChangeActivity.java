@@ -1,4 +1,4 @@
-package com.example.logisticapp1;
+package com.example.logisticappproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
