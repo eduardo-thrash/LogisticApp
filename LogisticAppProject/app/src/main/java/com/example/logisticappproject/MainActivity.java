@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
+import com.example.utilitiesdatabase.UtilitiesCities;
+import com.example.utilitiesdatabase.UtilitiesDepartments;
 import com.example.utilitiesdatabase.UtilitiesDepartures;
 import com.example.utilitiesdatabase.UtilitiesMaterials;
 import com.example.utilitiesdatabase.UtilitiesNotificationMaterial;
@@ -16,6 +18,7 @@ import com.example.utilitiesdatabase.UtilitiesNotificationMaterialType;
 import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 import com.example.utilitiesdatabase.UtilitiesRooms;
+import com.example.utilitiesdatabase.UtilitiesStatus;
 import com.example.utilitiesdatabase.UtilitiesUsers;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     UtilitiesNotificationTestType utilNotificationTestType = new UtilitiesNotificationTestType();
     UtilitiesMaterials utilMaterials = new UtilitiesMaterials();
     UtilitiesUsers utilUsers = new UtilitiesUsers();
+    UtilitiesDepartments utilDepartments = new UtilitiesDepartments();
+    UtilitiesCities utilCities = new UtilitiesCities();
+    UtilitiesStatus utilStatus = new UtilitiesStatus();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
             utilNotificationTestType.RegisterDataDefaultNotificationTestType(conn);
             utilMaterials.RegisterDataDefaultMaterial(conn);
             utilUsers.RegisterDataDefaultUsers(conn);
+            utilDepartments.RegisterDataDefaultDepartures(conn);
+            utilCities.RegisterDataDefaultCities(conn);
+            utilStatus.RegisterDataDefaultStatus(conn);
 
             db.close();
 

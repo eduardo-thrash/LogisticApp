@@ -1,6 +1,10 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.businessrules.DepartureBusinessRules;
+import com.example.businessrules.MaterialBusinessRules;
 
 import java.util.ArrayList;
 
@@ -30,11 +34,39 @@ public class UtilitiesDepartures {
         InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (7, 1, 1, 7, 1)");
         InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (8, 1, 1, 8, 1)");
         InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (9, 1, 1, 9, 1)");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (10, 2, 3, 10, 1)");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (11, 2, 5, 11, 1)");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (12, 2, 5, 12, 1)");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (13, 2, 5, 13, 1)");
 
         for (int i = 0; i<InsertDepartures.size();i++){
             db.execSQL(InsertDepartures.get(i));
         }
 
         db.close();
+    }
+
+    public ArrayList<MaterialBusinessRules> getDepartureInfo(SQLiteConnectionHelper conn, String cityName){
+
+        MaterialBusinessRules material = new MaterialBusinessRules();
+        ArrayList<MaterialBusinessRules> MaterialDepartures = new ArrayList<MaterialBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT M.material_code, S.status_name FROM DEPARTURES D " +
+                "INNER JOIN MATERIALS M ON D.material_id = M.material_id " +
+                "INNER JOIN STATUS S ON M.status_id = S.status_id " +
+                "WHERE D.city_id = (SELECT city_id FROM CITIES WHERE city_name = '" + cityName + "')",null);
+
+        while (cursor.moveToNext()){
+            material = new MaterialBusinessRules();
+
+            material.setMaterialCode(cursor.getString(0));
+            material.setMaterialStatus(cursor.getString(1));
+
+            MaterialDepartures.add(material);
+        }
+
+        return MaterialDepartures;
     }
 }

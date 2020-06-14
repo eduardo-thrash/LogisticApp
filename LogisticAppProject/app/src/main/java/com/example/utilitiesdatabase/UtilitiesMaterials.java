@@ -31,6 +31,17 @@ public class UtilitiesMaterials {
         InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (7, 'MT00000007', 1, 5, 2, 1, 3)");
         InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (8, 'MT00000008', 1, 5, 2, 1, 3)");
         InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (9, 'MT00000009', 1, 5, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (10, 'MT00000010', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (11, 'MT00000011', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (12, 'MT00000012', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (13, 'MT00000013', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (14, 'MT00000014', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (15, 'MT00000015', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (16, 'MT00000016', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (17, 'MT00000017', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (18, 'MT00000018', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (19, 'MT00000019', 1, 10, 2, 1, 3)");
+        InsertMaterial.add("INSERT INTO MATERIALS (material_id, material_code, status_id, material_package_count, user_id, site_id, material_user_room) VALUES (20, 'MT00000020', 1, 10, 2, 1, 3)");
 
         for (int i = 0; i<InsertMaterial.size();i++){
             db.execSQL(InsertMaterial.get(i));
