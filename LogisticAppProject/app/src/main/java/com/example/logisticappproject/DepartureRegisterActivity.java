@@ -118,5 +118,5 @@ public class DepartureRegisterActivity extends AppCompatActivity {
         ArrayAdapter adapterDepartureMaterial = new ArrayAdapter(this,android.R.layout.simple_list_item_1,InformationLIst);
         ListViewMaterial.setAdapter(adapterDepartureMaterial);
     }
-}
+} //Prueba ruben
 
