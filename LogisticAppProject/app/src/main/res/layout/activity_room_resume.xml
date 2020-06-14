@@ -251,8 +251,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toEndOf="@+id/tCodigoSitio"
+
         app:layout_constraintTop_toBottomOf="@+id/textView46"
         tools:ignore="UnknownId" />
+
 
     <TextView
         android:id="@+id/textView44"
@@ -297,6 +299,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tNombreSitio"
         tools:ignore="UnknownId" />
 
+
     <TextView
         android:id="@+id/tMateriales5"
         android:layout_width="wrap_content"
@@ -316,14 +319,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UnknownId" />
 
+
     <Button
         android:id="@+id/bVerNovedadSalon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+
         android:onClick="SiteNotificationDetailByRoomActivity"
         android:text="Ver Novedades Salón"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tParticipantesAnuladas" />
+
+        android:onClick="NovedadesSalon"
+        android:text="Ver Novedades Salón"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tParticipantesAnuladas"
+        tools:ignore="OnClick" />
 </androidx.constraintlayout.widget.ConstraintLayout>
