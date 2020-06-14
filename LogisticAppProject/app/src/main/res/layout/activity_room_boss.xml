@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RoomBossActivity">
+
+    <Button
+        android:id="@+id/bSalir"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_lock_power_off"
+        android:text="Salir"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bCambiarContrasena"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_manage"
+        android:onClick="PasswordChangeActivity"
+        android:text="Cambiar Contraseña"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bSalir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bAyuda"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_directions"
+
+        android:onClick="HelpActivity"
+        android:text="Ayuda"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bResumenSalon"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_compass"
+        android:onClick="RoomResumeActivity"
+        android:text="Resumen de Salón"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bAyuda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bConsultarNovedadSalon"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:onClick="SiteNotificationDetailByRoomActivity"
+        android:text="Consultar Novedad de Salón"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bResumenSalon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bEscanearExamen"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:drawableLeft="@android:drawable/ic_menu_camera"
+        android:onClick="TestScanActivity"
+        android:text="Escanear Examen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bConsultarExamen" />
+
+    <Button
+        android:id="@+id/bConsultarExamen"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:drawableLeft="@android:drawable/ic_menu_agenda"
+        android:onClick="TestSearchActivity"
+        android:text="Consultar Examen"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bEscanearExamen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tMensajeJefe" />
+
+    <Button
+        android:id="@+id/bReportarNovedadExamen"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="4dp"
+        android:drawableLeft="@android:drawable/ic_menu_add"
+        android:onClick="SiteNotificationsDetailsActivity"
+        android:text="Reportar Novedad de Examen"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bConsultarNovedadSalon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bEscanearExamen" />
+
+    <TextView
+        android:id="@+id/tMensajeJefe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="246dp"
+        android:layout_marginLeft="246dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="32dp"
+        android:text="ROL: Jefe de Salón "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bReportarNovedadMaterial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.174" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DistributorActivity">
+
+    <Button
+        android:id="@+id/bSalir3"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_lock_power_off"
+        android:text="Salir"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <Button
+        android:id="@+id/bCambiarContrasena"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@android:drawable/ic_menu_manage"
+        android:onClick="PasswordChangeActivity"
+        android:text="Cambiar Contraseña"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bAyuda" />
+
+    <Button
+        android:id="@+id/bAyuda"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+
+        android:layout_marginBottom="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_directions"
+        android:onClick="HelpActivity"
+        android:text="Ayuda"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bRegistrarDespacho"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <Button
+        android:id="@+id/bRegistrarDespacho"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="16dp"
+        android:drawableLeft="@android:drawable/ic_menu_mapmode"
+        android:onClick="DepartureRegisterActivity"
+        android:text="Registrar Despacho"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bConsultarNvedadesSitio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tMensajeDistribuidor" />
+
+    <TextView
+        android:id="@+id/tMensajeDistribuidor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="283dp"
+        android:layout_marginLeft="283dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="612dp"
+        android:text="ROL: Distribuidor"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
