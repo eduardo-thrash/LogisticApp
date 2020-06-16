@@ -22,8 +22,9 @@ public class DepartureBusinessRules {
     ArrayList<String> DepartureResult;
     ArrayList<String> MaterialInfo;
 
-    public String MaterialStatusUpdate(){
-        return "Material Status update";
+    public void MaterialStatusUpdate(SQLiteConnectionHelper conn, String materialCode){
+
+        utilDeparture.DepartureUpdateByMaterial(conn, materialCode);
     }
 
     public ArrayList<String> GetDepartures(SQLiteConnectionHelper conn, String cityName){
@@ -34,6 +35,19 @@ public class DepartureBusinessRules {
 
         for (int i=0; i<materialList.size(); i++){
             MaterialInfo.add("Codigo Material: "+materialList.get(i).getMaterialCode()+"\nEstado: "+materialList.get(i).getMaterialStatus());
+        }
+
+        return MaterialInfo;
+    }
+
+    public ArrayList<String> GetDepartureMaterialsCode(SQLiteConnectionHelper conn, String cityName){
+
+        ArrayList<MaterialBusinessRules> materialList = utilDeparture.getDepartureInfo(conn, cityName);
+
+        MaterialInfo = new ArrayList<String>();
+
+        for (int i=0; i<materialList.size(); i++){
+            MaterialInfo.add(materialList.get(i).getMaterialCode());
         }
 
         return MaterialInfo;

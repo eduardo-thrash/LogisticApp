@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity"></activity>
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".DepartureRegisterModal"></activity>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".HelpActivity" />
         <activity android:name=".TestDetailActivity" />
         <activity android:name=".TestScanActivity" />
         <activity android:name=".TestSearchActivity" />
@@ -35,7 +35,6 @@
         <activity android:name=".SiteNotificationDetailByRoomActivity" />
         <activity android:name=".RoomResumeActivity" />
         <activity android:name=".ScanMaterialActivity" />
-
         <activity android:name=".DepartureRegisterActivity" />
         <activity android:name=".MaterialSearchActivity" />
         <activity android:name="com.example.activities.delegate.ScanMaterialActivity" />
