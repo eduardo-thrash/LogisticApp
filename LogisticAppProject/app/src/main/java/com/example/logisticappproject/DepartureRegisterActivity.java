@@ -17,7 +17,10 @@ import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 
 import java.util.ArrayList;
 
-public class DepartureRegisterActivity extends AppCompatActivity {
+public class DepartureRegisterActivity extends AppCompatActivity implements DepartureRegisterModal.ActionListener {
+
+    String CityGeneralName;
+    String GeneralMaterialCode;
 
     SQLiteConnectionHelper conn = new SQLiteConnectionHelper(this,"bd_LogisticApp",null,1);
 
@@ -38,15 +41,9 @@ public class DepartureRegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_departure_register);
 
         SpDepartment =(Spinner)findViewById(R.id.sp_department);
-        ListViewMaterial = (ListView) findViewById(R.id.lvw_materials);
+        ListViewMaterial = (ListView) findViewById(R.id.lvw_departure_material_list);
 
         DepartmentList();
-
-        /*******************************************************************************************************/
-
-
-
-        /*******************************************************************************************************/
     }
 
     private void DepartmentList() {
@@ -113,10 +110,41 @@ public class DepartureRegisterActivity extends AppCompatActivity {
     }
 
     private void DepartureList(String cityOption) {
-        ArrayList<String> InformationLIst = departure.GetDepartures(conn, cityOption);
+
+        CityGeneralName = cityOption;
+
+        final ArrayList<String> InformationLIst = departure.GetDepartures(conn, cityOption);
 
         ArrayAdapter adapterDepartureMaterial = new ArrayAdapter(this,android.R.layout.simple_list_item_1,InformationLIst);
         ListViewMaterial.setAdapter(adapterDepartureMaterial);
+
+        ListViewMaterial.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DepartureRegisterModal modalBottomSheet = new DepartureRegisterModal();
+                modalBottomSheet.setmActionListener(DepartureRegisterActivity.this);
+                modalBottomSheet.show(getSupportFragmentManager(),"");
+
+                ArrayList<String> InformationMaterialCodeList = departure.GetDepartureMaterialsCode(conn, CityGeneralName);
+
+                GeneralMaterialCode = InformationMaterialCodeList.get(position);
+
+            }
+        });
+    }
+
+    @Override
+    public void onButtonClick(int id) {
+
+        if(id == R.id.btn_accept){
+            departure.MaterialStatusUpdate(conn, GeneralMaterialCode);
+            DepartureList(CityGeneralName);
+            Toast.makeText(getApplicationContext(),GeneralMaterialCode + " actualizado.",Toast.LENGTH_SHORT).show();
+        }
+
+        if(id == R.id.btn_cancel){
+        }
+
     }
 }
-

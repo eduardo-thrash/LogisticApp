@@ -32,29 +32,26 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_city_title"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_departure_city"
         app:layout_constraintVertical_bias="0.043" />
 
     <Spinner
         android:id="@+id/sp_department"
-
         style="@android:style/Widget.Holo.Light.DropDownItem"
         android:layout_width="163dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
         app:layout_constraintEnd_toStartOf="@+id/sp_city"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_department_title"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_departure_department"
         app:layout_constraintVertical_bias="0.043" />
 
     <TextView
-        android:id="@+id/lbl_department_title"
+        android:id="@+id/lbl_departure_department"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lbl_departure_title" />
 
     <TextView
-        android:id="@+id/lbl_city_title"
+        android:id="@+id/lbl_departure_city"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,30 +73,33 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toEndOf="@+id/lbl_department_title"
+        app:layout_constraintStart_toEndOf="@+id/lbl_departure_department"
         app:layout_constraintTop_toBottomOf="@+id/lbl_departure_title" />
 
-    <Button
-        android:id="@+id/btn_packoff"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="60dp"
-        android:text="DESPACHAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
-        app:layout_constraintVertical_bias="0.322"
-        tools:ignore="UnknownId" />
-
     <ListView
-        android:id="@+id/lvw_materials"
-        android:layout_width="412dp"
 
-        android:layout_height="351dp"
+        android:id="@+id/lvw_departure_material_list"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_marginTop="192dp"
         app:layout_constraintTop_toBottomOf="@+id/lbl_departure_title"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp" />
+        tools:layout_editor_absoluteX="-1dp"
+        android:background="#E0E5EA">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/lbl_departure_description"
+        style="@android:style/Widget.TextView.PopupMenu"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Seleccione departamento y ciudad para listar material a despachar."
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvw_departure_material_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>
