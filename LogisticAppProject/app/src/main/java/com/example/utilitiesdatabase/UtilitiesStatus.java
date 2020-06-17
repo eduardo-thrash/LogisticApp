@@ -13,10 +13,11 @@ public class UtilitiesStatus {
         ArrayList<String> InsertStatus;
         InsertStatus = new ArrayList<>();
 
-        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (1, 'en despacho')");
-        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (2, 'en transito')");
-        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (3, 'pendiente')");
-        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (4, 'entregado')");
+        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (1, 'En despacho')");
+        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (2, 'En transito')");
+        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (3, 'Entregado en sitio')");
+        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (4, 'Entregado en salón')");
+        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (5, 'Entregado a estudiante')");
 
         for (int i = 0; i<InsertStatus.size();i++){
             db.execSQL(InsertStatus.get(i));
@@ -24,5 +25,4 @@ public class UtilitiesStatus {
 
         db.close();
     }
-
 }

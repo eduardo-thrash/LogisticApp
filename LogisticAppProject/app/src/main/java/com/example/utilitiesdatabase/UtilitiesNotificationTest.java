@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -29,11 +30,31 @@ public class UtilitiesNotificationTest {
         InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(7,1,7,'descripcion de examen por novedad')");
         InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(8,1,8,'descripcion de examen por novedad')");
         InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(9,1,9,'descripcion de examen por novedad')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(10,2,10,'descripcion de examen por novedad')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(11,2,11,'descripcion de examen por novedad')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(12,2,12,'descripcion de examen por novedad')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(13,2,13,'descripcion de examen por novedad')");
 
         for (int i = 0; i<InsertNotificationTest.size();i++){
             db.execSQL(InsertNotificationTest.get(i));
         }
 
         db.close();
+    }
+
+    public Cursor GetMissingParticipants(SQLiteConnectionHelper conn){
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST WHERE notification_test_type_id = 1",null);
+
+        return cursor;
+    }
+
+    public Cursor GetCancelTest(SQLiteConnectionHelper conn){
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST WHERE notification_test_type_id = 2",null);
+
+        return cursor;
     }
 }
