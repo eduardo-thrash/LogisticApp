@@ -1,5 +1,8 @@
 package com.example.businessrules;
 
+import com.example.utilitiesdatabase.SQLiteConnectionHelper;
+import com.example.utilitiesdatabase.UtilitiesRooms;
+
 public class RoomBusinessRules {
     public int NumberTest;
     public int MissingTest;
@@ -11,5 +14,9 @@ public class RoomBusinessRules {
 
     public void GetSRoomResume(){}
 
-    //Lo que sea
+    UtilitiesRooms _utilitiesRooms = new UtilitiesRooms();
+
+    public int CountRoomsBySite(SQLiteConnectionHelper conn){
+        return _utilitiesRooms.GetRoomsBySite(conn).getCount();
+    }
 }

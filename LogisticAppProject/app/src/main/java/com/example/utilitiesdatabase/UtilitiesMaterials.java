@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -49,6 +50,5 @@ public class UtilitiesMaterials {
 
         db.close();
     }
-
 
 }

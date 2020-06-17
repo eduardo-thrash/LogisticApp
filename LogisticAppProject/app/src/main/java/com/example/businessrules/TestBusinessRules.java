@@ -1,5 +1,8 @@
 package com.example.businessrules;
 
+import com.example.utilitiesdatabase.SQLiteConnectionHelper;
+import com.example.utilitiesdatabase.UtilitiesTests;
+
 public class TestBusinessRules {
     public int IdSite;
     public String RoomUser;
@@ -12,6 +15,10 @@ public class TestBusinessRules {
     public void GetTest(){}
     public void GetTestDetails(){}
     public void TestStatusUpdate(){}
-    
-    //comentario prueba eduardo
+
+    UtilitiesTests _utilitiesTests = new UtilitiesTests();
+
+    public int CountPresentParticipants(SQLiteConnectionHelper conn){
+        return _utilitiesTests.GetPresentParticipants(conn).getCount();
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -29,11 +30,40 @@ public class UtilitiesNotificationMaterial {
         InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(7,1,7,'descripcion de material por novedad')");
         InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(8,1,8,'descripcion de material por novedad')");
         InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(9,1,9,'descripcion de material por novedad')");
+        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(10,1,9,'descripcion de material por novedad')");
+        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(11,2,9,'descripcion de material por novedad')");
+        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(12,3,9,'descripcion de material por novedad')");
+        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(13,3,9,'descripcion de material por novedad')");
+        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(14,3,9,'descripcion de material por novedad')");
 
         for (int i = 0; i<InsertNotificationMaterial.size();i++){
             db.execSQL(InsertNotificationMaterial.get(i));
         }
 
         db.close();
+    }
+
+    public Cursor GetMissingMaterialBySite(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL WHERE notification_material_type_id = 1",null);
+
+        return cursor;
+    }
+
+    public Cursor GetAdditionalMaterialBySite(SQLiteConnectionHelper conn){
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL WHERE notification_material_type_id = 2",null);
+
+        return cursor;
+    }
+
+    public Cursor GetMissingPersonalBySite(SQLiteConnectionHelper conn){
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL WHERE notification_material_type_id = 3",null);
+
+        return cursor;
     }
 }
