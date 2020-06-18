@@ -1,154 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotificationTestActivity">
-    <Spinner
-        android:id="@+id/dsTipoNovedad"
-        style="@android:style/Widget.Spinner"
-        android:layout_width="332dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <TextView
-        android:id="@+id/textView10"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:text="Código del Material"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tNombreSitio"
-        app:layout_constraintEnd_toStartOf="@+id/tbSitio"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tReportarMaterial" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="ESTADO"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tNombreSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsTipoNovedad" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="8dp"
-        android:text="Tipo de Novedad"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tNombreSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbSitio"
-        tools:ignore="UnknownId" />
-
-    <TextView
-        android:id="@+id/tReportarMaterial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:text="Reportar Material"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TableLayout
-        android:id="@+id/tbSitio"
-        android:layout_width="202dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="202dp"
-        android:layout_marginLeft="202dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tReportarMaterial">
-
-        <TableRow
-            android:id="@+id/tbfSitio1"
-
+        <TextView
+            android:id="@+id/lbl_notification_test_title"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:background="#345068"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="REPORTAR NOVEDAD"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
 
-            <TextView
-                android:id="@+id/tbrC1"
-                android:layout_width="188dp"
-                android:layout_height="match_parent" />
-        </TableRow>
+        <TextView
+            android:id="@+id/lbl_material_code_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codigo examen"
+            android:layout_below="@+id/lbl_notification_test_title"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"/>
 
-    </TableLayout>
+        <TextView
+            android:id="@+id/lbl_test_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado examen"
+            android:layout_below="@+id/lbl_material_code_search"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/tEsatdoMaterial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Estado"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/tObservacionNovedad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        <TextView
+            android:id="@+id/lbl_notification_type_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo novedad"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/lbl_test_status"/>
 
-    <EditText
-        android:id="@+id/tObservacionNovedad"
-        android:layout_width="349dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine|textImeMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/bRegistrarNovedad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tEsatdoMaterial" />
+        <Spinner
+            android:id="@+id/sp_material_code_search"
+            style="@android:style/Widget.Holo.Light.DropDownItem"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@+id/lbl_notification_test_title"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/lbl_material_code_search"/>
 
-    <Button
-        android:id="@+id/bRegistrarNovedad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Registrar Novedad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tObservacionNovedad" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/lbl_test_status_value"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/lbl_test_status"
+            android:layout_below="@+id/sp_material_code_search"
+            android:layout_marginTop="20dp"
+            android:textSize="12dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="..." />
+
+        <Spinner
+            android:id="@+id/sp_notification_test_type"
+            style="@android:style/Widget.Holo.Light.DropDownItem"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:layout_below="@+id/lbl_test_status_value"
+            android:layout_toRightOf="@+id/lbl_material_code_search"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+        <EditText
+            android:id="@+id/txt_notification_test_description"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="start|top"
+            android:layout_marginTop="20dp"
+            android:hint="Descripción ..."
+            android:textSize="12dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:inputType="textMultiLine|textImeMultiLine"
+            android:layout_below="@+id/sp_notification_test_type"/>
+
+        <Button
+            android:id="@+id/btn_notification_test_accept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_notification_test_description"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="REPORTAR" />
+
+    </RelativeLayout>
+</ScrollView>

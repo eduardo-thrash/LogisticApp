@@ -19,6 +19,7 @@ import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 import com.example.utilitiesdatabase.UtilitiesRooms;
 import com.example.utilitiesdatabase.UtilitiesStatus;
+import com.example.utilitiesdatabase.UtilitiesTests;
 import com.example.utilitiesdatabase.UtilitiesUsers;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,13 +37,14 @@ public class MainActivity extends AppCompatActivity {
     UtilitiesDepartments utilDepartments = new UtilitiesDepartments();
     UtilitiesCities utilCities = new UtilitiesCities();
     UtilitiesStatus utilStatus = new UtilitiesStatus();
+    UtilitiesTests _utilitiesTests = new UtilitiesTests();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent launcherActivity = new Intent(this, DepartureRegisterActivity.class);
+        Intent launcherActivity = new Intent(this, NotificationTestActivity.class);
         startActivity(launcherActivity);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             utilDepartments.RegisterDataDefaultDepartures(conn);
             utilCities.RegisterDataDefaultCities(conn);
             utilStatus.RegisterDataDefaultStatus(conn);
+            _utilitiesTests.RegisterDataDefaultTest(conn);
 
             db.close();
 
