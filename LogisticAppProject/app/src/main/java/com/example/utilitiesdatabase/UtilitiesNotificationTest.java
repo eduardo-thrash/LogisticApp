@@ -57,4 +57,33 @@ public class UtilitiesNotificationTest {
 
         return cursor;
     }
+
+    public Cursor GetTestCode(SQLiteConnectionHelper conn){
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT test_code FROM TESTS",null);
+
+        return cursor;
+    }
+
+    public boolean CreateNotificationTest(SQLiteConnectionHelper conn, String testId, String testNotificationType, String testDescription) {
+
+        int notificationTestTypeId = Integer.parseInt(testNotificationType);
+        int test_id = Integer.parseInt(testId);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        ArrayList<String> InsertNotificationTest;
+        InsertNotificationTest = new ArrayList<>();
+
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_type_id,test_id,notification_test_description)VALUES("+notificationTestTypeId+","+test_id+",'"+testDescription+"')");
+
+        for (int i = 0; i<InsertNotificationTest.size();i++){
+            db.execSQL(InsertNotificationTest.get(i));
+        }
+
+        db.close();
+
+        return true;
+    }
 }

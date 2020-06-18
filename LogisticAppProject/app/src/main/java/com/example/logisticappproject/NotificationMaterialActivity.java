@@ -25,7 +25,7 @@ public class NotificationMaterialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_material);
 
-        vdsNovedad=(Spinner)findViewById(R.id.dsTipoNovedad);
+        //vdsNovedad=(Spinner)findViewById(R.id.dsTipoNovedad);
 
         ArrayAdapter<String> AdapterNovedad = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Novedad);
         vdsNovedad.setAdapter(AdapterNovedad);

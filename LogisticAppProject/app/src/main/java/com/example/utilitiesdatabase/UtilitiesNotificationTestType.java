@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -25,5 +26,21 @@ public class UtilitiesNotificationTestType {
         }
 
         db.close();
+    }
+
+    public Cursor GetNotificationTestType(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT notification_test_type_name FROM NOTIFICATION_TEST_TYPE",null);
+
+        return cursor;
+    }
+
+    public Cursor GetTestNotificationTypeId(SQLiteConnectionHelper conn, String testNotificationTypeName) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT notification_test_type_id FROM NOTIFICATION_TEST_TYPE WHERE notification_test_type_name = '"+testNotificationTypeName+"'",null);
+
+        return cursor;
     }
 }
