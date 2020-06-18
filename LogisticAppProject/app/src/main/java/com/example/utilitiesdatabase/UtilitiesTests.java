@@ -17,7 +17,7 @@ public class UtilitiesTests {
 
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(1,'TS00000001',1,1,1)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(2,'TS00000002',3,2,1)");
-        InsertTest.add("INSERT INTO TESTS(test_id,test_code,satus_id,participant_id,room_id)VALUES(3,'TS00000003',3,3,1)");
+        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(3,'TS00000003',3,3,1)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(4,'TS00000004',3,4,1)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(5,'TS00000005',3,5,1)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id)VALUES(6,'TS00000006',3,6,1)");
