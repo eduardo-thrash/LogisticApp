@@ -18,6 +18,7 @@ import com.example.utilitiesdatabase.UtilitiesNotificationMaterialType;
 import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 import com.example.utilitiesdatabase.UtilitiesRooms;
+import com.example.utilitiesdatabase.UtilitiesSites;
 import com.example.utilitiesdatabase.UtilitiesStatus;
 import com.example.utilitiesdatabase.UtilitiesTests;
 import com.example.utilitiesdatabase.UtilitiesUsers;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     UtilitiesDepartments utilDepartments = new UtilitiesDepartments();
     UtilitiesCities utilCities = new UtilitiesCities();
     UtilitiesStatus utilStatus = new UtilitiesStatus();
-    UtilitiesTests _utilitiesTests = new UtilitiesTests();
+    UtilitiesTests utilitiesTests = new UtilitiesTests();
+    UtilitiesSites utilitiesSites = new UtilitiesSites();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(launcherActivity);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (!prefs.getBoolean("firstTime", false)) {
+        if (prefs.getBoolean("firstTime", true)) {
             SQLiteDatabase db = conn.getWritableDatabase();
 
             utilRooms.RegisterDataDefaultRooms(conn);
@@ -57,17 +59,19 @@ public class MainActivity extends AppCompatActivity {
             utilNotificationTest.RegisterDataDefaultNotificationTest(conn);
             utilNotificationMaterialType.RegisterDataDefaultNotificationMaterialType(conn);
             utilNotificationTestType.RegisterDataDefaultNotificationTestType(conn);
+
             utilMaterials.RegisterDataDefaultMaterial(conn);
             utilUsers.RegisterDataDefaultUsers(conn);
+            utilitiesTests.RegisterDataDefaultTest(conn);
             utilDepartments.RegisterDataDefaultDepartures(conn);
             utilCities.RegisterDataDefaultCities(conn);
             utilStatus.RegisterDataDefaultStatus(conn);
-            _utilitiesTests.RegisterDataDefaultTest(conn);
+            utilitiesSites.RegisterDataDefaultSite(conn);
 
             db.close();
 
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("firstTime", true);
+            editor.putBoolean("firstTime", false);
             editor.commit();
         }
     }

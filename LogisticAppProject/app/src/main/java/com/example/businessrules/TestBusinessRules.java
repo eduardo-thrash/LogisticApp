@@ -72,4 +72,12 @@ public class TestBusinessRules {
 
         return codeId;
     }
+
+    public String TestNumberByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorTestNumberByMaterialCode = _utilitiesTests.GetTestNumberByMaterialCode(conn, materialCode);
+
+        return String.valueOf(cursorTestNumberByMaterialCode.getCount());
+    }
+
+
 }

@@ -15,7 +15,7 @@ public class UtilitiesMaterials {
     public static final String fieldMaterialSiteId = "site_id";
     public static final String fieldMaterialUserRoom = "material_user_room";
 
-    public static final String CREATE_TABLE_MATERIALS = "CREATE TABLE MATERIALS (material_id INTEGER PRIMARY KEY, material_code TEXT, status_id INTEGER, material_package_count INTEGER, user_id INTEGER, site_id INTEGER, material_user_room INTEGER, FOREIGN KEY(material_id) REFERENCES DEPARTURES(material_id), FOREIGN KEY(material_id) REFERENCES NOTIFICATION_MATERIAL(material_id))";
+    public static final String CREATE_TABLE_MATERIALS = "CREATE TABLE MATERIALS (material_id INTEGER PRIMARY KEY, material_code TEXT, status_id INTEGER, material_package_count INTEGER, user_id INTEGER, site_id INTEGER, material_user_room INTEGER, FOREIGN KEY(material_id) REFERENCES TESTS(test_material_id))";
 
     public void RegisterDataDefaultMaterial(SQLiteConnectionHelper conn){
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -58,4 +58,31 @@ public class UtilitiesMaterials {
 
         return cursor;
     }
+
+    public Cursor GetPackageNumberByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT material_package_count FROM MATERIALS WHERE material_code = '"+materialCode+"'",null);
+
+        return cursor;
+    }
+
+    public void MaterialStatusUpdateByScan(SQLiteConnectionHelper conn, String materialCode){
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.execSQL("PRAGMA foreign_keys = OFF");
+        db.execSQL("UPDATE MATERIALS SET status_id = 5 WHERE material_code = '" + materialCode + "'");
+
+    }
+
+    public Cursor GetMaterialStatusByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT status_name FROM STATUS WHERE status_id = (SELECT status_id FROM MATERIALS  WHERE material_code = '"+materialCode+"')",null);
+
+        return cursor;
+    }
+
+
 }
