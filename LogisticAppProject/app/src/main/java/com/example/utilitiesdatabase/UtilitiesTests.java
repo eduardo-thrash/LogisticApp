@@ -74,6 +74,13 @@ public class UtilitiesTests {
     }
 
 
+    public Cursor GetTestByCode(SQLiteConnectionHelper conn, String testCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT test_code FROM TESTS WHERE test_code = '"+testCode+"'",null);
+
+        return cursor;
+    }
 }
 
 
