@@ -29,7 +29,7 @@
         <activity android:name=".Coordinador" />
         <activity android:name=".DelegateActivity" />
         <activity android:name=".Distribuidor" />
-        <activity android:name=".JefeSalon" />
+        <activity android:name=".RoomBossActivity" />
         <activity android:name=".CambioClave" />
         <activity android:name=".SiteNotificationDetailByRoomActivity" />
         <activity android:name=".RoomResumeActivity" />

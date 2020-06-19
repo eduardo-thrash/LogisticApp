@@ -80,4 +80,15 @@ public class TestBusinessRules {
     }
 
 
+    public String SearchTestByCode(SQLiteConnectionHelper conn, String contents) {
+        Cursor cursorSearchTestByCode = _utilitiesTests.GetTestByCode(conn, contents);
+
+        String testCode = null;
+
+        if (cursorSearchTestByCode.moveToFirst()) {
+            testCode = String.valueOf(cursorSearchTestByCode.getString(0));
+        }
+
+        return testCode;
+    }
 }
