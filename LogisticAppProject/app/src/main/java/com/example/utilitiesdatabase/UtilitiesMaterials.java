@@ -51,4 +51,11 @@ public class UtilitiesMaterials {
         db.close();
     }
 
+    public Cursor GetMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT material_code FROM MATERIALS WHERE material_code = '"+materialCode+"'",null);
+
+        return cursor;
+    }
 }

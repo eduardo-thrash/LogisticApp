@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DepartureRegisterModal"></activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".TestDetailActivity" />
@@ -28,7 +27,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".AyudaUser" />
         <activity android:name=".Coordinador" />
-        <activity android:name=".Delegado" />
+        <activity android:name=".DelegateActivity" />
         <activity android:name=".Distribuidor" />
         <activity android:name=".JefeSalon" />
         <activity android:name=".CambioClave" />
@@ -37,8 +36,6 @@
         <activity android:name=".ScanMaterialActivity" />
         <activity android:name=".DepartureRegisterActivity" />
         <activity android:name=".MaterialSearchActivity" />
-        <activity android:name="com.example.activities.delegate.ScanMaterialActivity" />
-        <activity android:name="com.example.activities.delegate.MaterialDetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent launcherActivity = new Intent(this, NotificationTestActivity.class);
+        Intent launcherActivity = new Intent(this, DelegateActivity.class);
         startActivity(launcherActivity);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

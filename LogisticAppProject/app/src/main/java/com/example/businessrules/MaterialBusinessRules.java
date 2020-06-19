@@ -1,6 +1,14 @@
 package com.example.businessrules;
 
+import android.database.Cursor;
+
+import com.example.utilitiesdatabase.SQLiteConnectionHelper;
+import com.example.utilitiesdatabase.UtilitiesMaterials;
+
 public class MaterialBusinessRules {
+
+    UtilitiesMaterials _utilitiesMaterials = new UtilitiesMaterials();
+
     public int IdSite;
     public int IdUser;
     public String MaterialCode;
@@ -67,5 +75,18 @@ public class MaterialBusinessRules {
 
     public void setPackageQuantity(int packageQuantity) {
         PackageQuantity = packageQuantity;
+    }
+
+    public String SearchMaterialByCode(SQLiteConnectionHelper conn, String contents) {
+
+        Cursor cursorTestNotificationTypeId = _utilitiesMaterials.GetMaterialCode(conn, contents);
+
+        String materialCode = null;
+
+        if (cursorTestNotificationTypeId.moveToFirst()) {
+            materialCode = String.valueOf(cursorTestNotificationTypeId.getString(0));
+        }
+
+        return materialCode;
     }
 }
