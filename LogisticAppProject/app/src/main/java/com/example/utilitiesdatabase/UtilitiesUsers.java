@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -38,5 +39,13 @@ public class UtilitiesUsers {
         }
 
         db.close();
+    }
+
+    public Cursor GetTestRoomBossByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT user_name FROM USERS WHERE user_id = (SELECT material_user_room FROM MATERIALS  WHERE material_code = '"+materialCode+"')",null);
+
+        return cursor;
     }
 }

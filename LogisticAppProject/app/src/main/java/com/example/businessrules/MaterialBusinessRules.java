@@ -79,14 +79,43 @@ public class MaterialBusinessRules {
 
     public String SearchMaterialByCode(SQLiteConnectionHelper conn, String contents) {
 
-        Cursor cursorTestNotificationTypeId = _utilitiesMaterials.GetMaterialCode(conn, contents);
+        Cursor cursorMaterialByCode = _utilitiesMaterials.GetMaterialCode(conn, contents);
 
         String materialCode = null;
 
-        if (cursorTestNotificationTypeId.moveToFirst()) {
-            materialCode = String.valueOf(cursorTestNotificationTypeId.getString(0));
+        if (cursorMaterialByCode.moveToFirst()) {
+            materialCode = String.valueOf(cursorMaterialByCode.getString(0));
         }
 
         return materialCode;
+    }
+
+    public String PackageNumberByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorPackageNumberByMaterialCode = _utilitiesMaterials.GetPackageNumberByMaterialCode(conn, materialCode);
+
+        String PackageNumber = null;
+
+        if (cursorPackageNumberByMaterialCode.moveToFirst()) {
+            PackageNumber = String.valueOf(cursorPackageNumberByMaterialCode.getString(0));
+        }
+
+        return PackageNumber;
+    }
+
+    public void MaterialStatusUpdateByScan(SQLiteConnectionHelper conn, String materialCode){
+
+        _utilitiesMaterials.MaterialStatusUpdateByScan(conn, materialCode);
+    }
+
+    public String MaterialStatusByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorTestStatusByMaterialCode = _utilitiesMaterials.GetMaterialStatusByMaterialCode(conn, materialCode);
+
+        String testStatusByMaterialCode = null;
+
+        if (cursorTestStatusByMaterialCode.moveToFirst()) {
+            testStatusByMaterialCode = String.valueOf(cursorTestStatusByMaterialCode.getString(0));
+        }
+
+        return testStatusByMaterialCode;
     }
 }
