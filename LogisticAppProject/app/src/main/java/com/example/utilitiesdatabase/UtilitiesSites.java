@@ -38,4 +38,12 @@ public class UtilitiesSites {
 
         return cursor;
     }
+
+    public Cursor GetSiteNameByTestCode(SQLiteConnectionHelper conn, String testCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT site_name FROM SITES WHERE site_id = (SELECT site_id FROM MATERIALS WHERE material_id = (SELECT test_material_id FROM TESTS WHERE test_code = '"+testCode+"'))",null);
+
+        return cursor;
+    }
 }

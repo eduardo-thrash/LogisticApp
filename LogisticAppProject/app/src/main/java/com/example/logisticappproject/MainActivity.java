@@ -17,6 +17,7 @@ import com.example.utilitiesdatabase.UtilitiesNotificationMaterial;
 import com.example.utilitiesdatabase.UtilitiesNotificationMaterialType;
 import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
+import com.example.utilitiesdatabase.UtilitiesParticipants;
 import com.example.utilitiesdatabase.UtilitiesRooms;
 import com.example.utilitiesdatabase.UtilitiesSites;
 import com.example.utilitiesdatabase.UtilitiesStatus;
@@ -40,13 +41,14 @@ public class MainActivity extends AppCompatActivity {
     UtilitiesStatus utilStatus = new UtilitiesStatus();
     UtilitiesTests utilitiesTests = new UtilitiesTests();
     UtilitiesSites utilitiesSites = new UtilitiesSites();
+    UtilitiesParticipants _utilitiesParticipants = new UtilitiesParticipants();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent launcherActivity = new Intent(this, DelegateActivity.class);
+        Intent launcherActivity = new Intent(this, RoomBossActivity.class);
         startActivity(launcherActivity);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -59,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             utilNotificationTest.RegisterDataDefaultNotificationTest(conn);
             utilNotificationMaterialType.RegisterDataDefaultNotificationMaterialType(conn);
             utilNotificationTestType.RegisterDataDefaultNotificationTestType(conn);
-
             utilMaterials.RegisterDataDefaultMaterial(conn);
             utilUsers.RegisterDataDefaultUsers(conn);
             utilitiesTests.RegisterDataDefaultTest(conn);
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             utilCities.RegisterDataDefaultCities(conn);
             utilStatus.RegisterDataDefaultStatus(conn);
             utilitiesSites.RegisterDataDefaultSite(conn);
+            _utilitiesParticipants.RegisterDataDefaultParticipant(conn);
 
             db.close();
 
