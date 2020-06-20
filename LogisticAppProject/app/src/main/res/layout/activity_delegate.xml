@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/lbl_delegate_menu_title"
             android:gravity="center_horizontal|center_vertical"
-            android:text="CONSULTAR MATERIAL" />
+            android:text="CONSULTAR MATERIAL"
+            android:onClick="MaterialSearchActivity"/>
 
         <Button
             android:id="@+id/btn_delegate_material_verify_option"

@@ -5,9 +5,13 @@ import android.database.Cursor;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesMaterials;
 
+import java.util.ArrayList;
+
 public class MaterialBusinessRules {
 
     UtilitiesMaterials _utilitiesMaterials = new UtilitiesMaterials();
+
+    ArrayList<String> MaterialInfo;
 
     public int IdSite;
     public int IdUser;
@@ -117,5 +121,18 @@ public class MaterialBusinessRules {
         }
 
         return testStatusByMaterialCode;
+    }
+
+    public ArrayList<String> MaterialListByUser(SQLiteConnectionHelper conn, int userId) {
+
+        ArrayList<MaterialBusinessRules> materialList = _utilitiesMaterials.GetMaterialListByUser(conn, userId);
+
+        MaterialInfo = new ArrayList<String>();
+
+        for (int i=0; i<materialList.size(); i++){
+            MaterialInfo.add("Codigo Material: "+materialList.get(i).getMaterialCode()+"\nEstado: "+materialList.get(i).getMaterialStatus());
+        }
+
+        return MaterialInfo;
     }
 }

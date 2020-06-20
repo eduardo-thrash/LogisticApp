@@ -51,4 +51,16 @@ public class UserBusinessRules {
     public void PasswordChange(SQLiteConnectionHelper conn, int userIdSession, String newPassword) {
         _utilitiesUsers.UpdateUserPassword(conn, userIdSession, newPassword);
     }
+
+    public String UserNameByUser(SQLiteConnectionHelper conn, int userId) {
+        Cursor cursorUserNameByUser = _utilitiesUsers.GetUserNameByUser(conn, userId);
+
+        String UserName = null;
+
+        if (cursorUserNameByUser.moveToFirst()) {
+            UserName = String.valueOf(cursorUserNameByUser.getString(0));
+        }
+
+        return UserName;
+    }
 }

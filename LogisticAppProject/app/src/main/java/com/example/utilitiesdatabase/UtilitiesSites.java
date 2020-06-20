@@ -46,4 +46,12 @@ public class UtilitiesSites {
 
         return cursor;
     }
+
+    public Cursor GetSiteNameByUserIdentification(SQLiteConnectionHelper conn, int userId) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT site_name FROM SITES WHERE site_id = (SELECT site_id FROM USERS WHERE user_id = "+userId+")",null);
+
+        return cursor;
+    }
 }

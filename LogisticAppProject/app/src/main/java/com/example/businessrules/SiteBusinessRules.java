@@ -62,5 +62,16 @@ public class SiteBusinessRules {
 
         return siteName;
     }
+
+    public String SiteNameByUser(SQLiteConnectionHelper conn, int userIdSession){
+        Cursor cursorGetSiteNameByUserIdentification = _utilitiesSites.GetSiteNameByUserIdentification(conn, userIdSession);
+
+        String siteName = null;
+
+        if (cursorGetSiteNameByUserIdentification.moveToFirst()) {
+            siteName = String.valueOf(cursorGetSiteNameByUserIdentification.getString(0));
+        }
+
+        return siteName;
+    }
 }
-//comentario//
