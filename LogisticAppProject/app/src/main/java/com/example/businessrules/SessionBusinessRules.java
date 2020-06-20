@@ -25,4 +25,16 @@ public class SessionBusinessRules {
 
         return sessionUserId;
     }
+
+    public int ValidateSessionActive(SQLiteConnectionHelper conn) {
+        Cursor cursorValidateSessionActive = _utilitiesSession.GetSessionActive(conn);
+
+        int sessionUserId = 0;
+
+        if (cursorValidateSessionActive.moveToFirst()) {
+            sessionUserId = cursorValidateSessionActive.getInt(0);
+        }
+
+        return sessionUserId;
+    }
 }

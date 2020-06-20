@@ -56,4 +56,11 @@ public class UtilitiesUsers {
 
         return cursor;
     }
+
+    public void UpdateUserPassword(SQLiteConnectionHelper conn, int userIdSession, String newPassword) {
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.execSQL("PRAGMA foreign_keys = OFF");
+        db.execSQL("UPDATE USERS SET user_password = '"+newPassword+"' WHERE user_id = "+userIdSession+"");
+    }
 }
