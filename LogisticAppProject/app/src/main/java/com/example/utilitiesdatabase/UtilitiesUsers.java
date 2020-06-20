@@ -63,4 +63,12 @@ public class UtilitiesUsers {
         db.execSQL("PRAGMA foreign_keys = OFF");
         db.execSQL("UPDATE USERS SET user_password = '"+newPassword+"' WHERE user_id = "+userIdSession+"");
     }
+
+    public Cursor GetUserNameByUser(SQLiteConnectionHelper conn, int userId) {
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT user_name FROM USERS WHERE user_id = "+userId+"",null);
+
+        return cursor;
+    }
 }

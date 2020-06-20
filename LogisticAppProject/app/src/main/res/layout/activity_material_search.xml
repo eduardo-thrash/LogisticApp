@@ -1,180 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MaterialSearchActivity">
-    <TextView
-        android:id="@+id/tMateriales"
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="8dp"
-        android:text="Materiales"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:layout_marginBottom="8dp"
-        android:text="Sede"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMateriales" />
-
-    <EditText
-        android:id="@+id/tSedeMaterial"
-        android:layout_width="217dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <EditText
-        android:id="@+id/tDelegadoMaterial"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Delegado"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tDelegadoMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tSedeMaterial" />
-
-    <TableLayout
-        android:id="@+id/tbMateriales"
-
-        android:layout_width="294dp"
-        android:layout_height="308dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
-        android:layout_marginBottom="118dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tDelegadoMaterial">
-
-        <TableRow
-            android:id="@+id/tbrMateriales1"
-
+        <TextView
+            android:id="@+id/materials_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#082F59"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="MATERIALES"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
 
-            <TextView
-                android:id="@+id/tbr1C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-
-            <TextView
-                android:id="@+id/tbr1C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrMateriales2"
-
+        <TextView
+            android:id="@+id/lbl_materials_site_title"
+            android:layout_below="@+id/materials_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sede"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tbr2C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-
-            <TextView
-                android:id="@+id/tbr2C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrMateriales3"
-
+        <EditText
+            android:id="@+id/txt_materials_site_description"
+            android:layout_below="@+id/lbl_materials_site_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="nombre sitio"
+            />
 
-            <TextView
-                android:id="@+id/tbr3C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-
-            <TextView
-                android:id="@+id/tbr3C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrMateriales4"
-
+        <TextView
+            android:id="@+id/lbl_materials_delegate_title"
+            android:layout_below="@+id/txt_materials_site_description"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Delegado"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tbr4C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
+        <EditText
+            android:id="@+id/txt_materials_delegate_description"
+            android:layout_below="@+id/lbl_materials_delegate_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="Nombre delegado"
+            />
 
-            <TextView
-                android:id="@+id/tbr4C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="MaterialDetailActivity" />
-        </TableRow>
-    </TableLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ListView
+            android:id="@+id/lvw_material_list"
+            android:layout_below="@+id/txt_materials_delegate_description"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="30dp"
+            android:background="#E0E5EA">
+        </ListView>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -3,6 +3,8 @@ package com.example.utilitiesdatabase;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.businessrules.MaterialBusinessRules;
+
 import java.util.ArrayList;
 
 public class UtilitiesMaterials {
@@ -84,5 +86,24 @@ public class UtilitiesMaterials {
         return cursor;
     }
 
+    public ArrayList<MaterialBusinessRules> GetMaterialListByUser(SQLiteConnectionHelper conn, int userId) {
 
+        MaterialBusinessRules material = new MaterialBusinessRules();
+        ArrayList<MaterialBusinessRules> MaterialDepartures = new ArrayList<MaterialBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT M.material_code, S.status_name FROM MATERIALS M INNER JOIN STATUS S ON M.status_id = S.status_id WHERE M.user_id = (SELECT user_id FROM USERS WHERE user_id = "+userId+")",null);
+
+        while (cursor.moveToNext()){
+            material = new MaterialBusinessRules();
+
+            material.setMaterialCode(cursor.getString(0));
+            material.setMaterialStatus(cursor.getString(1));
+
+            MaterialDepartures.add(material);
+        }
+
+        return MaterialDepartures;
+    }
 }
