@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        Intent launcherActivity = new Intent(this, RoomBossActivity.class);
+        Intent launcherActivity = new Intent(this, LoginActivity.class);
         startActivity(launcherActivity);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

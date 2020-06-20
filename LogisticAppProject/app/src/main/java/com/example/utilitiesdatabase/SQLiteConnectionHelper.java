@@ -27,6 +27,7 @@ public class SQLiteConnectionHelper extends SQLiteOpenHelper {
         db.execSQL(UtilitiesStatus.CREATE_TABLE_STATUS);
         db.execSQL(UtilitiesParticipants.CREATE_TABLE_PARTICIPANTS);
         db.execSQL(UtilitiesTests.CREATE_TABLE_TESTS);
+        db.execSQL(UtilitiesSession.CREATE_TABLE_SESSION);
     }
 
     @Override
@@ -50,6 +51,3 @@ public class SQLiteConnectionHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
-
-
-

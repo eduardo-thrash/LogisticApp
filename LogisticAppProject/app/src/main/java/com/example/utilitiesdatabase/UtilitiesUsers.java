@@ -16,7 +16,7 @@ public class UtilitiesUsers {
     public static final String role_id = "role_id";
     public static final String site_id = "site_id";
 
-    public static final String CREATE_TABLE_USERS = "CREATE TABLE USERS (user_id INTEGER PRIMARY KEY, user_type_identification TEXT, user_identification INTEGER, user_name TEXT, user_password TEXT, user_phone TEXT, role_id INTEGER, site_id INTEGER, FOREIGN KEY(user_id) REFERENCES MATERIALS(user_id), FOREIGN KEY(user_id) REFERENCES DEPARTURES(user_id))";
+    public static final String CREATE_TABLE_USERS = "CREATE TABLE USERS (user_id INTEGER PRIMARY KEY, user_type_identification TEXT, user_identification INTEGER, user_name TEXT, user_password TEXT, user_phone TEXT, role_id INTEGER, site_id INTEGER, FOREIGN KEY(user_id) REFERENCES MATERIALS(user_id), FOREIGN KEY(user_id) REFERENCES DEPARTURES(user_id), FOREIGN KEY(user_id) REFERENCES SESSION(session_user_id))";
 
     public void RegisterDataDefaultUsers(SQLiteConnectionHelper conn){
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -24,11 +24,11 @@ public class UtilitiesUsers {
         ArrayList<String> InsertUsers;
         InsertUsers = new ArrayList<>();
 
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (1, 'CC', 1030265663, 'Laura Zabaleta', '123456', '7192479', 1,1)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (2, 'CC', 19301325, 'Isabella Rodriguez Zabaleta', '123456', '7192479', 2,1)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (3, 'CC', 13644221, 'Lina Avila', 123456, '7192479', 3,1)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (4, 'CC', 19301335, 'Felipe Hernandez', '123456', '7192479', 1,1)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (5, 'CC', 51235541, 'Mario Avendaño', '123456', '7192479', 4,1)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (1, 'CC', 1, 'Laura Zabaleta', '123', '7192479', 1,1)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (2, 'CC', 2, 'Isabella Rodriguez Zabaleta', '123', '7192479', 2,1)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (3, 'CC', 3, 'Lina Avila', 123, '123', 3,1)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (4, 'CC', 2444444, 'Felipe Hernandez', '123', '7192479', 1,1)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (5, 'CC', 4, 'Mario Avendaño', '123', '123', 4,1)");
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (6, 'CC', 1024536857, 'Hair Gonzalez', '123456', '7192479', 2,1)");
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (7, 'CC', 1030457411, 'Edwin Quitora', '123456', '7192479', 3,1)");
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (8, 'CC', 1014257222, 'Felix Gutierrez', '123456', '7192479', 2,1)");
@@ -45,6 +45,14 @@ public class UtilitiesUsers {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT user_name FROM USERS WHERE user_id = (SELECT material_user_room FROM MATERIALS  WHERE material_code = '"+materialCode+"')",null);
+
+        return cursor;
+    }
+
+    public Cursor getUsernameAndPassword(SQLiteConnectionHelper conn, int userIdentification, String password) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT user_identification FROM USERS WHERE user_identification = "+userIdentification+" AND user_password = '"+password+"'",null);
 
         return cursor;
     }
