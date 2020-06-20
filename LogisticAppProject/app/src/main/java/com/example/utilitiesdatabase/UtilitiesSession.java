@@ -43,4 +43,11 @@ public class UtilitiesSession {
         return cursor;
     }
 
+    public Cursor GetSessionActive(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT session_user_id FROM SESSION WHERE session_user_id",null);
+
+        return cursor;
+    }
 }

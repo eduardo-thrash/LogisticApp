@@ -48,4 +48,7 @@ public class UserBusinessRules {
     }
 
 
+    public void PasswordChange(SQLiteConnectionHelper conn, int userIdSession, String newPassword) {
+        _utilitiesUsers.UpdateUserPassword(conn, userIdSession, newPassword);
+    }
 }
