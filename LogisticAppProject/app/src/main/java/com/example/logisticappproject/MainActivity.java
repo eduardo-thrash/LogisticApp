@@ -18,6 +18,7 @@ import com.example.utilitiesdatabase.UtilitiesNotificationMaterialType;
 import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 import com.example.utilitiesdatabase.UtilitiesParticipants;
+import com.example.utilitiesdatabase.UtilitiesRoles;
 import com.example.utilitiesdatabase.UtilitiesRooms;
 import com.example.utilitiesdatabase.UtilitiesSites;
 import com.example.utilitiesdatabase.UtilitiesStatus;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     UtilitiesTests utilitiesTests = new UtilitiesTests();
     UtilitiesSites utilitiesSites = new UtilitiesSites();
     UtilitiesParticipants _utilitiesParticipants = new UtilitiesParticipants();
+    UtilitiesRoles _utilitiesRoles = new UtilitiesRoles();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             utilStatus.RegisterDataDefaultStatus(conn);
             utilitiesSites.RegisterDataDefaultSite(conn);
             _utilitiesParticipants.RegisterDataDefaultParticipant(conn);
+            _utilitiesRoles.RegisterDataDefaultRoles(conn);
 
             db.close();
 
