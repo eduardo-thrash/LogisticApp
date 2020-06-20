@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -29,5 +30,14 @@ public class UtilitiesRooms {
         }
 
         db.close();
+    }
+
+    public Cursor GetRoomsBySite(SQLiteConnectionHelper conn){
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM ROOMS",null);
+
+        return cursor;
     }
 }
