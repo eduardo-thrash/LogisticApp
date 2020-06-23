@@ -17,9 +17,13 @@ public class UtilitiesNotificationMaterialType {
         ArrayList<String> InsertNotificationMaterialType;
         InsertNotificationMaterialType = new ArrayList<>();
 
-        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(1,'Material faltante')");
-        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(2,'Material sobrante')");
-        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(3,'Personal faltante')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(1,'Material de Evaluacion')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(2,'Material de Sitio')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(3,'Material Incompleto')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(4,'Codigo Material')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(5,'Material Sobrante')");
+        InsertNotificationMaterialType.add("INSERT INTO NOTIFICATION_MATERIAL_TYPE(notification_material_type_id,notification_material_type_name)VALUES(6,'Material Faltante')");
+
 
         for (int i = 0; i<InsertNotificationMaterialType.size();i++){
             db.execSQL(InsertNotificationMaterialType.get(i));
