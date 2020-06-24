@@ -1,5 +1,6 @@
 package com.example.utilitiesdatabase;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -26,5 +27,21 @@ public class UtilitiesNotificationMaterialType {
         }
 
         db.close();
+    }
+
+    public Cursor GetMaterialNotificationTypeList(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT notification_material_type_name FROM NOTIFICATION_MATERIAL_TYPE",null);
+
+        return cursor;
+    }
+
+    public Cursor GetInfoMaterialNotificationTypeId(SQLiteConnectionHelper conn, String materialNotificationType) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT notification_material_type_id FROM NOTIFICATION_MATERIAL_TYPE WHERE notification_material_type_name = '"+materialNotificationType+"'",null);
+
+        return cursor;
     }
 }

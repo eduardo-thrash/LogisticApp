@@ -135,4 +135,41 @@ public class MaterialBusinessRules {
 
         return MaterialInfo;
     }
+
+    public ArrayList<String> MaterialCodeList(SQLiteConnectionHelper conn) {
+        ArrayList<String> MaterialCodeListResult = new ArrayList<String>();
+
+        Cursor cursorMaterialCodeList = _utilitiesMaterials.GetMaterialCodeList(conn);
+
+        MaterialCodeListResult.add("Seleccione");
+        while (cursorMaterialCodeList.moveToNext()) {
+            MaterialCodeListResult.add(cursorMaterialCodeList.getString(0));
+        }
+
+        return MaterialCodeListResult;
+    }
+
+    public String InfoStatusByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorInfoStatusByMaterialCode = _utilitiesMaterials.GetInfoStatusByMaterialCode(conn, materialCode);
+
+        String materialCodeStatus = null;
+
+        if (cursorInfoStatusByMaterialCode.moveToFirst()) {
+            materialCodeStatus = String.valueOf(cursorInfoStatusByMaterialCode.getString(0));
+        }
+
+        return materialCodeStatus;
+    }
+
+    public String InfoMaterialIdByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorInfoMaterialIdByMaterialCode = _utilitiesMaterials.GetInfoMaterialIdByMaterialCode(conn, materialCode);
+
+        String materialId = null;
+
+        if (cursorInfoMaterialIdByMaterialCode.moveToFirst()) {
+            materialId = String.valueOf(cursorInfoMaterialIdByMaterialCode.getString(0));
+        }
+
+        return materialId;
+    }
 }

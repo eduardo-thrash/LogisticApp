@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_delegate_material_verify_option"
             android:gravity="center_horizontal|center_vertical"
-            android:text="REPORTAR NOVEDAD" />
+            android:text="REPORTAR NOVEDAD"
+            android:onClick="NotificationMaterialActivity"/>
 
         <Button
             android:id="@+id/btn_delegate_site_resume_option"

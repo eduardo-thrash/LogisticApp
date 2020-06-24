@@ -106,4 +106,28 @@ public class UtilitiesMaterials {
 
         return MaterialDepartures;
     }
+
+    public Cursor GetMaterialCodeList(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT material_code FROM MATERIALS",null);
+
+        return cursor;
+    }
+
+    public Cursor GetInfoStatusByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT status_name FROM STATUS WHERE status_id = (SELECT status_id FROM MATERIALS WHERE material_code = '"+materialCode+"')",null);
+
+        return cursor;
+    }
+
+    public Cursor GetInfoMaterialIdByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT material_id FROM MATERIALS WHERE material_code = '"+materialCode+"'",null);
+
+        return cursor;
+    }
 }

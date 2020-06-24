@@ -66,4 +66,24 @@ public class UtilitiesNotificationMaterial {
 
         return cursor;
     }
+
+    public boolean CreateMaterialNotification(SQLiteConnectionHelper conn, String materialId, String materialNotificationType, String materialDescription) {
+        int notificationMaterialTypeId = Integer.parseInt(materialNotificationType);
+        int material_Id = Integer.parseInt(materialId);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        ArrayList<String> InsertMaterialNotification;
+        InsertMaterialNotification = new ArrayList<>();
+
+        InsertMaterialNotification.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_type_id,material_id,notification_material_description)VALUES("+notificationMaterialTypeId+","+material_Id+",'"+materialDescription+"')");
+
+        for (int i = 0; i<InsertMaterialNotification.size();i++){
+            db.execSQL(InsertMaterialNotification.get(i));
+        }
+
+        db.close();
+
+        return true;
+    }
 }
