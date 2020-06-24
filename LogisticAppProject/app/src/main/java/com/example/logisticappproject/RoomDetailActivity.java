@@ -15,7 +15,7 @@ public class RoomDetailActivity extends AppCompatActivity {
     }
 
     public void RoomNotification (View view){
-        Intent RoomNotification = new Intent(this, RoomNotification.class);
+        Intent RoomNotification = new Intent(this, RoomNotificationActivity.class);
         startActivity(RoomNotification);
 
     }

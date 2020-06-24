@@ -36,7 +36,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bSalir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
@@ -54,7 +53,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
@@ -71,7 +69,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bAyuda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
@@ -82,13 +79,13 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:onClick="SiteNotificationDetailByRoomActivity"
+        android:onClick="PageRoomNotificationActivity"
         android:text="Consultar Novedad de Salón"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bResumenSalon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarMaterial"
+
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
@@ -146,7 +143,6 @@
         android:text="ROL: Jefe de Salón "
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bReportarNovedadMaterial"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
