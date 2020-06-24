@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesNotificationMaterial;
+import com.example.utilitiesdatabase.UtilitiesNotificationMaterialType;
 import com.example.utilitiesdatabase.UtilitiesNotificationTest;
 import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 
@@ -24,6 +25,7 @@ public class NotificationBusinessRules {
     UtilitiesNotificationTest _utilitiesNotificationTest = new UtilitiesNotificationTest();
 
     UtilitiesNotificationTestType _utilitiesNotificationTestType = new UtilitiesNotificationTestType();
+    UtilitiesNotificationMaterialType _utilitiesNotificationMaterialType = new UtilitiesNotificationMaterialType();
 
     public int CountMissingMaterialBySite(SQLiteConnectionHelper conn){
         return _utilitiesNotificationMaterial.GetMissingMaterialBySite(conn).getCount();
@@ -76,6 +78,39 @@ public class NotificationBusinessRules {
 
         if(testId!=null && testNotificationType!=null && testDescription!=null){
             return _utilitiesNotificationTest.CreateNotificationTest(conn,testId,testNotificationType,testDescription);
+        }else{
+            return false;
+        }
+    }
+
+    public ArrayList<String> MaterialNotificationTypeList(SQLiteConnectionHelper conn) {
+        ArrayList<String> MaterialNotificationTypeListResult = new ArrayList<String>();
+
+        Cursor cursorMaterialNotificationTypeListResult = _utilitiesNotificationMaterialType.GetMaterialNotificationTypeList(conn);
+
+        MaterialNotificationTypeListResult.add("Seleccione");
+        while (cursorMaterialNotificationTypeListResult.moveToNext()) {
+            MaterialNotificationTypeListResult.add(cursorMaterialNotificationTypeListResult.getString(0));
+        }
+
+        return MaterialNotificationTypeListResult;
+    }
+
+    public String InfoMaterialNotificationTypeId(SQLiteConnectionHelper conn, String materialNotificationType) {
+        Cursor cursorInfoMaterialNotificationTypeId = _utilitiesNotificationMaterialType.GetInfoMaterialNotificationTypeId(conn, materialNotificationType);
+
+        String TypeId = null;
+
+        if (cursorInfoMaterialNotificationTypeId.moveToFirst()) {
+            TypeId = String.valueOf(cursorInfoMaterialNotificationTypeId.getString(0));
+        }
+
+        return TypeId;
+    }
+
+    public boolean SaveMaterialNotification(SQLiteConnectionHelper conn, String materialId, String materialNotificationType, String materialDescription) {
+        if(materialId!=null && materialNotificationType!=null && materialDescription!=null){
+            return _utilitiesNotificationMaterial.CreateMaterialNotification(conn,materialId,materialNotificationType,materialDescription);
         }else{
             return false;
         }
