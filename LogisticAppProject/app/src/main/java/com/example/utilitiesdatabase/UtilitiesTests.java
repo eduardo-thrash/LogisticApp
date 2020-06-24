@@ -3,6 +3,9 @@ package com.example.utilitiesdatabase;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.businessrules.MaterialBusinessRules;
+import com.example.businessrules.TestBusinessRules;
+
 import java.util.ArrayList;
 
 public class UtilitiesTests {
@@ -80,6 +83,27 @@ public class UtilitiesTests {
         Cursor cursor = db.rawQuery("SELECT test_code FROM TESTS WHERE test_code = '"+testCode+"'",null);
 
         return cursor;
+    }
+
+    public ArrayList<TestBusinessRules> GetTestListByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+
+        TestBusinessRules test = new TestBusinessRules();
+        ArrayList<TestBusinessRules> TestList = new ArrayList<TestBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT T.test_code, S.status_name FROM TESTS T, STATUS S ON T.status_id = S.status_id WHERE test_material_id = (SELECT material_id FROM MATERIALS WHERE material_id = 2 AND material_user_room = "+userRoomBossIdSession+") ",null);
+
+        while (cursor.moveToNext()){
+            test = new TestBusinessRules();
+
+            test.setTestCode(cursor.getString(0));
+            test.setTestStatusName(cursor.getString(1));
+
+            TestList.add(test);
+        }
+
+        return TestList;
     }
 }
 
