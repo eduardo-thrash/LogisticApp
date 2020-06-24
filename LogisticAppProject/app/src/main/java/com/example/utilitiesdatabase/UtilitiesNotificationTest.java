@@ -3,6 +3,9 @@ package com.example.utilitiesdatabase;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.businessrules.NotificationBusinessRules;
+import com.example.businessrules.TestBusinessRules;
+
 import java.util.ArrayList;
 
 public class UtilitiesNotificationTest {
@@ -78,5 +81,27 @@ public class UtilitiesNotificationTest {
         db.close();
 
         return true;
+    }
+
+    public ArrayList<NotificationBusinessRules> GetListTestNotificationByRoom(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id WHERE material_user_room = (SELECT user_id FROM USERS WHERE user_id = "+userRoomBossIdSession+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+            notificationTest.setNotificationTestTypeName(cursor.getString(1));
+            notificationTest.setNotificationTestTypeDescription(cursor.getString(2));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
     }
 }

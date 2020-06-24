@@ -11,10 +11,36 @@ import com.example.utilitiesdatabase.UtilitiesNotificationTestType;
 import java.util.ArrayList;
 
 public class NotificationBusinessRules {
+
+    ArrayList<String> NotificationTestInfo;
     public String MaterialCode;
-    public String NotificationTypeName;
-    public String NotificationTypeDescription;
+    public String NotificationTestTypeName;
+    public String NotificationTestTypeDescription;
     public String TestCode;
+
+    public String getNotificationTestTypeName() {
+        return NotificationTestTypeName;
+    }
+
+    public void setNotificationTestTypeName(String notificationTestTypeName) {
+        NotificationTestTypeName = notificationTestTypeName;
+    }
+
+    public String getNotificationTestTypeDescription() {
+        return NotificationTestTypeDescription;
+    }
+
+    public void setNotificationTestTypeDescription(String notificationTestTypeDescription) {
+        NotificationTestTypeDescription = notificationTestTypeDescription;
+    }
+
+    public String getTestCode() {
+        return TestCode;
+    }
+
+    public void setTestCode(String testCode) {
+        TestCode = testCode;
+    }
 
     public void NotificationMaterialCreate(){}
     public void NotificationTestCreate(){}
@@ -114,5 +140,17 @@ public class NotificationBusinessRules {
         }else{
             return false;
         }
+    }
+
+    public ArrayList<String> ListTestNotificationByRoom(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+        ArrayList<NotificationBusinessRules> testNotificationList = _utilitiesNotificationTest.GetListTestNotificationByRoom(conn, userRoomBossIdSession);
+
+        NotificationTestInfo = new ArrayList<String>();
+
+        for (int i=0; i<testNotificationList.size(); i++){
+            NotificationTestInfo.add("Codigo Examen: "+testNotificationList.get(i).getTestCode()+"\n\nTipo de novedad: "+testNotificationList.get(i).getNotificationTestTypeName()+"\nDescripción: "+testNotificationList.get(i).getNotificationTestTypeDescription()+"\n");
+        }
+
+        return NotificationTestInfo;
     }
 }

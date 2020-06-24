@@ -44,6 +44,12 @@ public class RoomBossActivity extends AppCompatActivity {
 
     }
 
+    public void PageRoomNotificationActivity (View view){
+        Intent LauncherRoomNotificationActivity = new Intent(this, RoomNotificationActivity.class);
+        startActivity(LauncherRoomNotificationActivity);
+
+    }
+
     public void SiteNotificationsDetailsActivity (View view){
         Intent SiteNotificationsDetailsActivity = new Intent(this, SiteNotificationsDetailsActivity.class);
         startActivity(SiteNotificationsDetailsActivity);

@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.logisticappproject.HelpActivity;
 import com.example.logisticappproject.R;
-import com.example.logisticappproject.RoomNotification;
+import com.example.logisticappproject.RoomNotificationActivity;
 import com.example.logisticappproject.SiteSearchActivity;
 
 public class CordinatorActivity extends AppCompatActivity {
@@ -38,7 +38,7 @@ public class CordinatorActivity extends AppCompatActivity {
     }
 
     public void RoomNotification (View view){
-        Intent RoomNotification = new Intent(this, com.example.logisticappproject.RoomNotification.class);
+        Intent RoomNotification = new Intent(this, com.example.logisticappproject.RoomNotificationActivity.class);
         startActivity(RoomNotification);
 
     }

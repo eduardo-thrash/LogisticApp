@@ -16,7 +16,7 @@
         <activity android:name=".TestSearchActivity" />
         <activity android:name=".MaterialDetailActivity" />
         <activity android:name=".RoomDetailActivity" />
-        <activity android:name=".RoomNotification" />
+        <activity android:name=".RoomNotificationActivity" />
         <activity android:name=".SiteNotificationsDetailsActivity" />
         <activity android:name=".NotificationBySiteActivity" />
         <activity android:name=".SiteSearchActivity" />

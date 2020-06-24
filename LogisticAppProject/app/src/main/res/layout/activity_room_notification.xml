@@ -1,140 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoomNotification">
+    tools:context=".RoomNotificationActivity">
 
-    <EditText
-        android:id="@+id/tSalonNovedad"
-        android:layout_width="217dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
-    <TextView
-        android:id="@+id/textView41"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:layout_marginBottom="16dp"
-        android:text="Salón"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMateriales4" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tMateriales4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="8dp"
-        android:text="Novedades Exámenes"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TableLayout
-        android:id="@+id/tbNovedadesExamen"
-        android:layout_width="342dp"
-        android:layout_height="318dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tSalonNovedad">
-
-        <TableRow
-            android:id="@+id/tbrNovExa1"
+        <TextView
+            android:id="@+id/lbl_notification_test_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#345068"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="NOVEDADES EXAMENES"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
 
-            <TextView
-                android:id="@+id/tbrEN1C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:id="@+id/tbrEN1C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovExa2"
+        <TextView
+            android:id="@+id/lbl_rooms_site_title"
+            android:layout_below="@+id/lbl_notification_test_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Salón"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tbrEN2C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:id="@+id/tbrEN2C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovExa3"
+        <EditText
+            android:id="@+id/txt_rooms_site_description"
+            android:layout_below="@+id/lbl_rooms_site_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="nombre salón"/>
 
-            <TextView
-                android:id="@+id/tbrEN3C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:id="@+id/tbrEN3C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovExa4"
+        <ListView
+            android:id="@+id/lvw_test_notification_list"
+            android:layout_below="@+id/txt_rooms_site_description"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="400dp"
+            android:layout_marginTop="30dp"
+            android:background="#E0E5EA">
+        </ListView>
 
-            <TextView
-                android:id="@+id/tbrEN4C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tbrEN4C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="170dp"
-                android:layout_height="match_parent" />
-        </TableRow>
-
-    </TableLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
