@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class TestBusinessRules {
 
+    UtilitiesTests _utilitiesTests = new UtilitiesTests();
+
     ArrayList<String> TestInfo;
 
     public int IdSite;
@@ -85,7 +87,7 @@ public class TestBusinessRules {
         ParticipantName = participantName;
     }
 
-    UtilitiesTests _utilitiesTests = new UtilitiesTests();
+
     UtilitiesNotificationTestType _utilitiesNotificationTestType = new UtilitiesNotificationTestType();
 
     public int CountPresentParticipants(SQLiteConnectionHelper conn) {
@@ -160,5 +162,9 @@ public class TestBusinessRules {
         }
 
         return TestInfo;
+    }
+
+    public int TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesTests.TestQuantityByRoom(conn, roomId).getCount();
     }
 }

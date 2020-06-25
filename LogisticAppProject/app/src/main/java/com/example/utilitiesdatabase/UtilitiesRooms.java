@@ -107,5 +107,13 @@ public class UtilitiesRooms {
 
         return cursor;
     }
+
+    public Cursor GetRoomIdByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT room_id FROM ROOMS R JOIN SITES S ON R.site_id = S.site_id WHERE S.site_id = (SELECT M.site_id FROM MATERIALS M WHERE material_user_room = "+userRoomBossIdSession+")",null);
+
+        return cursor;
+    }
 }
 

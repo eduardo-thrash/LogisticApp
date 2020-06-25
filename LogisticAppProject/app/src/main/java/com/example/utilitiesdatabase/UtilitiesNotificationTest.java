@@ -24,10 +24,20 @@ public class UtilitiesNotificationTest {
         ArrayList<String> InsertNotificationTest;
         InsertNotificationTest = new ArrayList<>();
 
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(1,1,1,'Examen Perdido')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(2,2,2,'Examen Incompleto')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(3,3,3,'Examen Anulado')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(4,4,4,'El examen no corresponde al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(1,1,1,'Examen Perdido 2')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(2,2,2,'Examen sobrante 1')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(3,4,3,'Examen Anulado')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(4,4,5,'El examen no corresponde al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(5,1,6,'Examen Perdido  2')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(6,1,7,'Examen Perdido 3')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(7,1,8,'Examen Perdido al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(8,1,9,'Examen Perdido al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(9,2,2,'Examen sobrante 2')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(10,2,4,'Examen sobrante 3')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(11,2,5,'Examen sobrante 4')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(12,4,5,'El examen no corresponde al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(13,4,8,'El examen no corresponde al participante')");
+        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(14,4,9,'El examen no corresponde al participante')");
 
 
 
@@ -103,5 +113,55 @@ public class UtilitiesNotificationTest {
         }
 
         return TestList;
+    }
+
+    public Cursor TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST WHERE notification_test_type_id = 1 AND test_id = (SELECT test_id FROM TESTS WHERE room_id = "+IntRoomId+")",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationMissingTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 1 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationAdditionalTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 2 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationMissingParticipantsQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 4 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationCancelTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 3 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
     }
 }

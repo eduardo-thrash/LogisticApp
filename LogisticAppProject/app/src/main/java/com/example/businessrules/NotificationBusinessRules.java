@@ -153,4 +153,20 @@ public class NotificationBusinessRules {
 
         return NotificationTestInfo;
     }
+
+    public int NotificationMissingTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesNotificationTest.GetNotificationMissingTestQuantityByRoom(conn, roomId).getCount();
+    }
+
+    public int NotificationAdditionalTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesNotificationTest.GetNotificationAdditionalTestQuantityByRoom(conn, roomId).getCount();
+    }
+
+    public int NotificationMissingParticipantsQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesNotificationTest.GetNotificationMissingParticipantsQuantityByRoom(conn, roomId).getCount();
+    }
+
+    public int NotificationCancelTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesNotificationTest.GetNotificationCancelTestQuantityByRoom(conn, roomId).getCount();
+    }
 }
