@@ -1,341 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RoomResumeActivity">
-    <TextView
-        android:id="@+id/textView49"
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="No. de pruebas"
-        app:layout_constraintEnd_toStartOf="@+id/tNoPruebas"
-        app:layout_constraintHorizontal_bias="0.725"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Material Faltante"
-        app:layout_constraintEnd_toStartOf="@+id/tMaterialFaltante"
-        app:layout_constraintHorizontal_bias="0.743"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        <TextView
+            android:id="@+id/lbl_room_resume_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#082F59"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="RESUMEN SALÓN"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"
+            />
 
-    <TextView
-        android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Material Sobrante"
-        app:layout_constraintEnd_toStartOf="@+id/tMaterialSobrante"
-        app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        <TextView
+            android:id="@+id/lbl_room_resume_name_title"
+            android:layout_below="@+id/lbl_room_resume_header"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:text="Nombre de salón"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView52"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Participantes"
-        app:layout_constraintEnd_toStartOf="@+id/tParticipantes"
-        app:layout_constraintHorizontal_bias="0.659"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+        <EditText
+            android:id="@+id/txt_room_resume_name"
+            android:layout_below="@+id/lbl_room_resume_header"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/lbl_room_resume_name_title"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="40dp"
+            android:hint="nombre"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView53"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Participantes presentes"
-        app:layout_constraintEnd_toStartOf="@+id/tParticipantesPresentes"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView52" />
+        <TextView
+            android:id="@+id/lbl_room_resume_test_quantity_title"
+            android:layout_below="@+id/lbl_room_resume_name_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="  Número de pruebas"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Participantes Ausentes"
-        app:layout_constraintEnd_toStartOf="@+id/tParticipantesAusentes"
-        app:layout_constraintHorizontal_bias="0.84"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+        <TextView
+            android:id="@+id/lbl_room_resume_test_quantity_detail"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txt_room_resume_name"
+            android:layout_toRightOf="@+id/lbl_room_resume_test_quantity_title"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Participantes Anuladas"
-        app:layout_constraintEnd_toStartOf="@+id/tParticipantesAnuladas"
-        app:layout_constraintHorizontal_bias="0.828"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView54" />
+        <TextView
+            android:id="@+id/lbl_room_resume_missing_test_title"
+            android:layout_below="@+id/lbl_room_resume_test_quantity_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="   Pruebas faltantes"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tNoPruebas"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/tMaterialFaltante"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+        <TextView
+            android:id="@+id/lbl_room_resume_missing_test_detail"
+            android:layout_below="@+id/lbl_room_resume_test_quantity_detail"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/lbl_room_resume_missing_test_title"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tMaterialFaltante"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/tMaterialFaltante"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tNoPruebas"
-        tools:ignore="NotSibling" />
+        <TextView
+            android:id="@+id/lbl_room_resume_additional_test_title"
+            android:layout_below="@+id/lbl_room_resume_missing_test_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="  Pruebas sobrantes"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tMaterialSobrante"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tMaterialFaltante" />
+        <TextView
+            android:id="@+id/lbl_room_resume_additional_test_detail"
+            android:layout_below="@+id/lbl_room_resume_missing_test_detail"
+            android:layout_toRightOf="@+id/lbl_room_resume_additional_test_title"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tParticipantes"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tMaterialSobrante" />
+        <TextView
+            android:id="@+id/lbl_room_resume_participants_title"
+            android:layout_below="@+id/lbl_room_resume_additional_test_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="  Participantes"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tParticipantesPresentes"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tParticipantes" />
+        <TextView
+            android:id="@+id/lbl_room_resume_room_number_detail"
+            android:layout_below="@+id/lbl_room_resume_additional_test_detail"
+            android:layout_toRightOf="@+id/lbl_room_resume_participants_title"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tParticipantesAusentes"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tParticipantesPresentes" />
+        <TextView
+            android:id="@+id/lbl_room_resume_present_participants"
+            android:layout_below="@+id/lbl_room_resume_participants_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="  Participantes presentes"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tParticipantesAnuladas"
-        android:layout_width="135dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:inputType="number|textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tParticipantesAusentes"
-        tools:ignore="UnknownId" />
+        <TextView
+            android:id="@+id/lbl_room_resume_participants_detail"
+            android:layout_below="@+id/lbl_room_resume_room_number_detail"
+            android:layout_toRightOf="@+id/lbl_room_resume_present_participants"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="DETALLE"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView48"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tCodigoSitio" />
+        <TextView
+            android:id="@+id/lbl_room_resume_missing_participants_title"
+            android:layout_below="@+id/lbl_room_resume_present_participants"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:text="  Participantes ausentes"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView48"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="264dp"
-        android:layout_marginLeft="264dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginRight="89dp"
-        android:text="CANTIDADES"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tNombreSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNoSalon"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/lbl_room_resume_missing_participants_detail"
+            android:layout_below="@+id/lbl_room_resume_participants_detail"
+            android:layout_toRightOf="@+id/lbl_room_resume_missing_participants_title"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
 
-    <EditText
-        android:id="@+id/tNombreSitio"
-        android:layout_width="288dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        <TextView
+            android:id="@+id/lbl_room_cancel_test_title"
+            android:layout_below="@+id/lbl_room_resume_missing_participants_title"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:background="#0D3557"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="  Pruebas anuladas"
+            />
 
-    <EditText
-        android:id="@+id/tCodigoSitio"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        <TextView
+            android:id="@+id/lbl_room_cancel_test_detail"
+            android:layout_below="@+id/lbl_room_resume_missing_participants_detail"
+            android:layout_toRightOf="@+id/lbl_room_cancel_test_title"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="#DFDFDF"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="_"
+            android:textColor="#454141"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
 
-    <EditText
-        android:id="@+id/tNoSalon"
-        android:layout_width="109dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.237"
-        app:layout_constraintStart_toEndOf="@+id/tCodigoSitio"
-
-        app:layout_constraintTop_toBottomOf="@+id/textView46"
-        tools:ignore="UnknownId" />
-
-
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:text="Nombre del Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMateriales5" />
-
-    <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Cód. del Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toStartOf="@+id/textView46"
-        app:layout_constraintHorizontal_bias="0.394"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNombreSitio" />
-
-    <TextView
-        android:id="@+id/textView46"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Salón"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNombreSitio"
-        tools:ignore="UnknownId" />
-
-
-    <TextView
-        android:id="@+id/tMateriales5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="8dp"
-        android:text="Resumen Salón"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnknownId" />
-
-
-    <Button
-        android:id="@+id/bVerNovedadSalon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
-        android:onClick="SiteNotificationDetailByRoomActivity"
-        android:text="Ver Novedades Salón"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tParticipantesAnuladas" />
-
-        android:onClick="NovedadesSalon"
-        android:text="Ver Novedades Salón"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tParticipantesAnuladas"
-        tools:ignore="OnClick" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

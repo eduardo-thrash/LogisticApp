@@ -114,4 +114,24 @@ public class UtilitiesParticipants {
 
         return cursor;
     }
+
+    public Cursor GetParticipantsByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM TESTS WHERE room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetPresentParticipantsByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM TESTS WHERE status_id = 5 AND room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
 }

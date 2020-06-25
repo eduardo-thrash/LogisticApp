@@ -24,9 +24,9 @@ public class UtilitiesTests {
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(4,'TS00000004',3,4,1,2)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(5,'TS00000005',3,5,1,2)");
         InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(6,'TS00000006',3,6,1,2)");
-        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(7,'TS00000007',3,7,1,2)");
-        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(8,'TS00000008',3,8,1,2)");
-        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(9,'TS00000009',3,9,1,2)");
+        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(7,'TS00000007',5,7,1,2)");
+        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(8,'TS00000008',5,8,1,2)");
+        InsertTest.add("INSERT INTO TESTS(test_id,test_code,status_id,participant_id,room_id,test_material_id)VALUES(9,'TS00000009',5,9,1,2)");
 
         for (int i = 0; i<InsertTest.size();i++){
             db.execSQL(InsertTest.get(i));
@@ -104,6 +104,17 @@ public class UtilitiesTests {
         }
 
         return TestList;
+    }
+
+    public Cursor TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM TESTS WHERE room_id = "+IntRoomId+"",null);
+
+        return cursor;
     }
 }
 

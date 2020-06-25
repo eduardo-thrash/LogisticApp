@@ -54,4 +54,12 @@ public class ParticipantBusinessRules {
 
         return participantNameByTestCodee;
     }
+
+    public int ParticipantsByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesParticipants.GetParticipantsByRoom(conn, roomId).getCount();
+    }
+
+    public int PresentParticipantsByRoom(SQLiteConnectionHelper conn, String roomId) {
+        return _utilitiesParticipants.GetPresentParticipantsByRoom(conn, roomId).getCount();
+    }
 }

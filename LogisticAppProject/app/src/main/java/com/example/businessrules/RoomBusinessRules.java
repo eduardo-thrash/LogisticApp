@@ -33,4 +33,16 @@ public class RoomBusinessRules {
 
         return roomName;
     }
+
+    public String RoomIdByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+        Cursor cursorGetRoomIdByUser = _utilitiesRooms.GetRoomIdByUser(conn, userRoomBossIdSession);
+
+        String roomId = null;
+
+        if (cursorGetRoomIdByUser.moveToFirst()) {
+            roomId = String.valueOf(cursorGetRoomIdByUser.getString(0));
+        }
+
+        return roomId;
+    }
 }
