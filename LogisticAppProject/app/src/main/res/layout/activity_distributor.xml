@@ -16,11 +16,13 @@
         android:drawableLeft="@android:drawable/ic_lock_power_off"
         android:text="Salir"
         android:textStyle="bold"
+        android:onClick="DistributorLogout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintVertical_bias="0.004"
+        />
 
     <Button
         android:id="@+id/bCambiarContrasena"

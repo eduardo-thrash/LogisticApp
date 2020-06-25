@@ -25,8 +25,8 @@ public class UtilitiesUsers {
         InsertUsers = new ArrayList<>();
 
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (1,'CC',51023654,'Edwin Diaz','123456','7654321',1,1)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (2,'CC',79254130,'Eduardo Montenegro','123456','6254103',2,2)");
-        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (3,'CC',3,'Ruben Rubio','123','4735612',3,3)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (2,'CC',1018434262,'Eduardo Montenegro','123456','6254103',2,2)");
+        InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (3,'CC',1030564789,'Ruben Rubio','123456','4735612',3,3)");
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (4,'CC',45789651,'Sandra Celis','123456','9410251',4,4)");
         InsertUsers.add("INSERT INTO USERS (user_id, user_type_identification, user_identification, user_name, user_password, user_phone, role_id, site_id) VALUES (5,'CC',53041941,'Leidi Bernal','123456','7841002',4,4)");
 

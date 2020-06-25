@@ -46,4 +46,19 @@ public class UtilitiesRoles {
 
         return roleName;
     }
+
+    public String GetRole(SQLiteConnectionHelper conn, int userIdSession) {
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursorRole = db.rawQuery("SELECT role_name FROM ROLES WHERE role_id = (SELECT role_id FROM USERS WHERE user_id = "+userIdSession+")",null);
+
+        String roleName = null;
+
+        if (cursorRole.moveToFirst()) {
+            roleName = String.valueOf(cursorRole.getString(0));
+        }
+
+        return roleName;
+    }
 }
