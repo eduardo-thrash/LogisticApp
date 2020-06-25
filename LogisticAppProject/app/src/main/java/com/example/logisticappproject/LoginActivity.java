@@ -22,15 +22,13 @@ public class LoginActivity extends AppCompatActivity {
     SessionBusinessRules _sessionBusinessRules = new SessionBusinessRules();
     UtilitiesRoles _utilitiesRoles = new UtilitiesRoles();
 
+    int userIdSession = 0;
+
     EditText LoginUsername;
     EditText LoginPassword;
     Button Login;
     String loginUsernameText;
     String loginPasswordText;
-
-
-
-    int userIdSession = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +40,32 @@ public class LoginActivity extends AppCompatActivity {
         final Intent launcherRoomBossActivity = new Intent(this, RoomBossActivity.class);
         final Intent launcherCoordinatorActivity = new Intent(this, CordinatorActivity.class);
 
-
         LoginUsername = findViewById(R.id.txt_login_username);
         LoginPassword = findViewById(R.id.txt_login_password);
         Login = findViewById(R.id.btn_login);
+
+        userIdSession = _sessionBusinessRules.ValidateSessionActive(conn);
+
+        if(userIdSession != 0){
+            String roleName = _utilitiesRoles.GetRole(conn, userIdSession);
+
+            switch (roleName){
+                case "distributor":
+                    startActivity(launcherDistributorActivity);
+                    break;
+                case "delegado":
+                    startActivity(launcherDelegateActivity);
+                    break;
+                case "jefe de salón":
+                    startActivity(launcherRoomBossActivity);
+                    break;
+                case "coordinador":
+                    startActivity(launcherCoordinatorActivity);
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(),"Erro no identificado",Toast.LENGTH_LONG).show();
+            }
+        }
 
         Login.setOnClickListener(new View.OnClickListener() {
 
@@ -81,16 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Erro no identificado",Toast.LENGTH_LONG).show();
                     }
 
-
-
                 }else{
                     Toast.makeText(getApplicationContext(),"Usuario o contraseña incorrecto",Toast.LENGTH_LONG).show();
                 }
-
-
             }
         });
     }
-
-
 }

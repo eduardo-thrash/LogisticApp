@@ -8,9 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.businessrules.SessionBusinessRules;
 import com.example.logisticappproject.R;
+import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 
 public class DelegateActivity extends AppCompatActivity {
+
+    SQLiteConnectionHelper conn = new SQLiteConnectionHelper(this,"bd_LogisticApp",null,1);
+
+    SessionBusinessRules _sessionBusinessRules = new SessionBusinessRules();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +55,13 @@ public class DelegateActivity extends AppCompatActivity {
         startActivity(SiteResumeActivity);
     }
 
+    public void DelegateLogout (View view){
 
+        if(_sessionBusinessRules.DestroySession(conn)){
+            Intent LauncherActivity = new Intent(this, com.example.logisticappproject.LoginActivity.class);
+            startActivity(LauncherActivity);
+        }else{
+            Toast.makeText(getApplicationContext(),"Error al cerrar sesión, intente de nuevo.",Toast.LENGTH_LONG).show();
+        }
+    }
 }
