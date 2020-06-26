@@ -16,7 +16,7 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-        int images[]={R.drawable.ayuda_1, R.drawable.ayuda_2,R.drawable.ayuda_3,R.drawable.ayuda_4,R.drawable.ayuda_5,R.drawable.ayuda_6,R.drawable.ayuda_7,R.drawable.ayuda_8,R.drawable.ayuda_9,R.drawable.ayuda_10};
+        int images[]={R.drawable.ayuda_1, R.drawable.ayuda_2,R.drawable.ayuda_3,R.drawable.ayuda_4,R.drawable.ayuda_5,R.drawable.ayuda_6,R.drawable.ayuda_7,R.drawable.ayuda_8,R.drawable.ayuda_9,R.drawable.ayuda_10,R.drawable.ayuda_11,R.drawable.ayuda_12 };
 
         v_flipper=findViewById(R.id.iContenedor);
 
