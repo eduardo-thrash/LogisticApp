@@ -1,234 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SiteSearchActivity">
 
-    <Spinner
-        android:id="@+id/dsMunicipioSitio"
-        style="@android:style/Widget.Spinner"
-        android:layout_width="153dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/buSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView59" />
-
-    <Spinner
-        android:id="@+id/dsDepartamentoSitio"
-        style="@android:style/Widget.Spinner"
-        android:layout_width="156dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/buSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView58" />
-
-    <TextView
-        android:id="@+id/textView59"
-        style="@android:style/Widget.TextView.PopupMenu"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Municipio"
-        app:layout_constraintBottom_toTopOf="@+id/dsMunicipio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsRegionSitio"
-        tools:ignore="UnknownId" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView58"
-        style="@android:style/Widget.TextView.PopupMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginRight="240dp"
-        android:layout_marginBottom="16dp"
-        android:text="Departamento"
-        app:layout_constraintBottom_toTopOf="@+id/dsDepartamento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsRegionSitio"
-        app:layout_constraintVertical_bias="0.75"
-        tools:ignore="UnknownId" />
-
-    <Spinner
-        android:id="@+id/dsRegionSitio"
-        style="@android:style/Widget.Spinner"
-        android:layout_width="331dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView59"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView57" />
-
-    <TextView
-        android:id="@+id/textView57"
-        style="@android:style/Widget.TextView.PopupMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="317dp"
-        android:layout_marginRight="317dp"
-        android:layout_marginBottom="24dp"
-        android:text="Región"
-        app:layout_constraintBottom_toTopOf="@+id/dsRegion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView56" />
-
-    <TextView
-        android:id="@+id/textView56"
-        style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="173dp"
-        android:layout_marginLeft="173dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="180dp"
-        android:layout_marginRight="180dp"
-        android:layout_marginBottom="45dp"
-        android:text="CONSULTAR SITIOS"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/dsRegion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnknownId" />
-
-    <SearchView
-        android:id="@+id/buSitio"
-        android:layout_width="330dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/tbSitios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsDepartamentoSitio" />
-
-    <TableLayout
-        android:id="@+id/tbSitios"
-        android:layout_width="331dp"
-        android:layout_height="276dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buSitio">
-
-        <TableRow
-            android:id="@+id/tbrSitios1"
+        <TextView
+            android:id="@+id/lbl_sites_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#345068"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="SITIOS"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"
+            />
 
-            <TextView
-                android:id="@+id/tbrSitio1C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
+        <TextView
+            android:id="@+id/lbl_sites_department"
+            android:layout_below="@+id/lbl_sites_header"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Departamento"
+            android:textSize="18sp"/>
 
-            <TextView
-                android:id="@+id/tbrSitio1C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-        </TableRow>
+        <TextView
+            android:id="@+id/lbl_sites_city"
+            android:layout_below="@+id/lbl_sites_header"
+            android:layout_toRightOf="@+id/lbl_sites_department"
+            android:layout_marginLeft="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Ciudad"
+            android:textSize="18dp"/>
 
-        <TableRow
-            android:id="@+id/tbrSitios2"
+        <Spinner
+            android:id="@+id/sp_site_department"
+            android:layout_below="@+id/lbl_sites_department"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            style="@android:style/Widget.Holo.Light.DropDownItem" />
+
+        <Spinner
+            android:id="@+id/sp_site_city"
+            android:layout_below="@+id/lbl_sites_city"
+            android:layout_toRightOf="@+id/sp_site_department"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="35dp"
+            style="@android:style/Widget.Holo.Light.DropDownItem" />
+
+        <ListView
+            android:id="@+id/lvw_site_list"
+            android:layout_below="@+id/sp_site_department"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="300dp"
+            android:layout_marginTop="50dp"
+            android:background="#E0E5EA">
+        </ListView>
 
-            <TextView
-                android:id="@+id/tbrSitio2C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-
-            <TextView
-                android:id="@+id/tbrSitio2C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrSitios3"
+        <TextView
+            android:id="@+id/lbl_site_search_description"
+            android:layout_below="@+id/lvw_site_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:text="Seleccione departamento y ciudad para listar sitios."
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="14sp"
+            />
 
-            <TextView
-                android:id="@+id/tbrSitio3C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tbrSitio3C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrSitios4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tbrSitio4C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-
-            <TextView
-                android:id="@+id/tbrSitio4C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="164dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteResumeActivity" />
-        </TableRow>
-    </TableLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
