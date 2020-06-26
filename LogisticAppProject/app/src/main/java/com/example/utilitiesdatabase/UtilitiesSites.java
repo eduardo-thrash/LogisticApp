@@ -3,6 +3,8 @@ package com.example.utilitiesdatabase;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.businessrules.SiteBusinessRules;
+
 import java.util.ArrayList;
 
 public class UtilitiesSites {
@@ -146,5 +148,26 @@ public class UtilitiesSites {
         Cursor cursor = db.rawQuery("SELECT site_name FROM SITES WHERE site_id = (SELECT site_id FROM USERS WHERE user_id = "+userId+")",null);
 
         return cursor;
+    }
+
+    public ArrayList<SiteBusinessRules> GetSitesByCity(SQLiteConnectionHelper conn, String cityName) {
+
+        SiteBusinessRules site = new SiteBusinessRules();
+        ArrayList<SiteBusinessRules> siteList = new ArrayList<SiteBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT site_name FROM SITES WHERE city_id = (SELECT city_id FROM CITIES WHERE city_name = '"+cityName+"')",null);
+
+        while (cursor.moveToNext()){
+            site = new SiteBusinessRules();
+
+            site.setSiteName(cursor.getString(0));
+
+            siteList.add(site);
+        }
+
+        return siteList;
+
     }
 }
