@@ -205,4 +205,12 @@ public class UtilitiesNotificationTest {
 
         return TestList;
     }
+
+    public Cursor SelectNotificationTestDetail(SQLiteConnectionHelper conn, String testCodeNotification) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id WHERE TS.test_code = '"+testCodeNotification+"'",null);
+
+        return cursor;
+    }
 }
