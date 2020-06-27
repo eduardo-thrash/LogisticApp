@@ -1,183 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotificationBySiteActivity">
 
-    <TextView
-        android:id="@+id/textView77"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginLeft="260dp"
-        android:layout_marginTop="32dp"
-        android:text="TIPO"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tbNovedadesSalon"
-        app:layout_constraintEnd_toStartOf="@+id/textView48"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNombreSitio"
-        tools:ignore="UnknownId" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView76"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:text="NOVEDAD"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView77"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNombreSitio" />
-
-    <EditText
-        android:id="@+id/tNombreSitio"
-        android:layout_width="288dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView75"
-        tools:ignore="UnknownId" />
-
-    <TextView
-        android:id="@+id/textView75"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:text="Nombre del Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tSedeMaterial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMateriales8"
-        tools:ignore="UnknownId" />
-
-    <TextView
-        android:id="@+id/tMateriales8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="8dp"
-        android:text="Novedades Sitio"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UnknownId" />
-
-    <TableLayout
-        android:id="@+id/tbNovedadesSitio"
-        android:layout_width="285dp"
-        android:layout_height="303dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginLeft="59dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginRight="67dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tNombreSitio">
-
-        <TableRow
-            android:id="@+id/tbrNovedadesSitio1"
+        <TextView
+            android:id="@+id/lbl_site_notification_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:background="#345068"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="NOVEDADES DE SITIO"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
 
-            <TextView
-                android:id="@+id/tbrNovS1C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-
-            <TextView
-                android:id="@+id/tbrNovS1C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovedadesSitio2"
+        <TextView
+            android:id="@+id/lbl_site_notification_name_title"
+            android:layout_below="@+id/lbl_site_notification_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Sitio"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tbrNovS2C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-
-            <TextView
-                android:id="@+id/tbrNovS2C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovedadesSitio3"
+        <EditText
+            android:id="@+id/txt_site_notification_name_description"
+            android:layout_below="@+id/lbl_site_notification_name_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="nombre sitio"/>
 
-            <TextView
-                android:id="@+id/tbrNovS3C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-
-            <TextView
-                android:id="@+id/tbrNovS3C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tbrNovedadesSitio4"
+        <ListView
+            android:id="@+id/lvw_site_notification_list"
+            android:layout_below="@+id/txt_site_notification_name_description"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="400dp"
+            android:layout_marginTop="30dp"
+            android:background="#E0E5EA">
+        </ListView>
 
-            <TextView
-                android:id="@+id/tbrNovS4C1"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
+        <TextView
+            android:id="@+id/lbl_site_notification_empty_list"
+            android:layout_below="@+id/txt_site_notification_name_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="No existen novedades para este sitio"
+            android:visibility="gone"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tbrNovS4C2"
-                style="@android:style/Widget.Holo.Spinner"
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:onClick="SiteNotificationsDetailsActivity" />
-        </TableRow>
-    </TableLayout>
+    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

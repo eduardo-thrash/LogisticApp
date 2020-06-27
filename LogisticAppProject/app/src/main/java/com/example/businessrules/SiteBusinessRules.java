@@ -107,4 +107,16 @@ public class SiteBusinessRules {
 
         return SiteInfo;
     }
+
+    public String GetSiteIdByName(SQLiteConnectionHelper conn, String siteName) {
+        Cursor cursorSiteIdByName = _utilitiesSites.SelectSiteIdByName(conn, siteName);
+
+        String siteId = null;
+
+        if (cursorSiteIdByName.moveToFirst()) {
+            siteId = String.valueOf(cursorSiteIdByName.getString(0));
+        }
+
+        return siteId;
+    }
 }

@@ -186,4 +186,23 @@ public class UtilitiesNotificationTest {
 
         return cursor;
     }
+
+    public ArrayList<NotificationBusinessRules> GetListNotificationBySite(SQLiteConnectionHelper conn, int siteId) {
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id where MT.site_id = (SELECT S.site_id FROM SITES S WHERE S.site_id = "+siteId+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
+    }
 }
