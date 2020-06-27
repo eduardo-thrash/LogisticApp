@@ -170,4 +170,12 @@ public class UtilitiesSites {
         return siteList;
 
     }
+
+    public Cursor SelectSiteIdByName(SQLiteConnectionHelper conn, String siteNameSelected) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT site_id FROM SITES WHERE site_name = '"+siteNameSelected+"'",null);
+
+        return cursor;
+    }
 }

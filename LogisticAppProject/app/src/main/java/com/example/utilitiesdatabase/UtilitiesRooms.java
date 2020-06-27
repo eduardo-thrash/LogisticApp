@@ -122,5 +122,20 @@ public class UtilitiesRooms {
 
         return cursor;
     }
+
+    public ArrayList<String> SelectRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        ArrayList<String> RoomsResult = new ArrayList<String>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT room_name FROM ROOMS WHERE site_id = (SELECT site_id FROM SITES WHERE site_name = '"+siteName+"')",null);
+
+        while(c.moveToNext()){
+            RoomsResult.add(c.getString(0));
+        }
+
+        return RoomsResult;
+    }
+
 }
 

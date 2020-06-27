@@ -5,6 +5,8 @@ import android.database.Cursor;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesRooms;
 
+import java.util.ArrayList;
+
 public class RoomBusinessRules {
     public int NumberTest;
     public int MissingTest;
@@ -16,7 +18,9 @@ public class RoomBusinessRules {
 
     public void GetSRoomResume(){}
 
+    ArrayList<String> RoomsListResult = new ArrayList<String>();
     UtilitiesRooms _utilitiesRooms = new UtilitiesRooms();
+    ArrayList<String> RoomsNameResult;
 
     public int CountRoomsBySite(SQLiteConnectionHelper conn){
         return _utilitiesRooms.GetRoomsBySite(conn).getCount();
@@ -56,5 +60,16 @@ public class RoomBusinessRules {
         }
 
         return roomName;
+    }
+
+    public ArrayList<String> GetRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        RoomsNameResult = _utilitiesRooms.SelectRoomListBySiteName(conn, siteName);
+
+        RoomsListResult.add("Seleccione");
+        for (int i=0; i<RoomsNameResult.size();i++){
+            RoomsListResult.add(RoomsNameResult.get(i));
+        }
+
+        return RoomsListResult;
     }
 }

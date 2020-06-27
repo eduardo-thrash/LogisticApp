@@ -50,6 +50,7 @@ public class NotificationBusinessRules {
     UtilitiesNotificationMaterial _utilitiesNotificationMaterial = new UtilitiesNotificationMaterial();
     UtilitiesNotificationTest _utilitiesNotificationTest = new UtilitiesNotificationTest();
     RoomBusinessRules _roomBusinessRules = new RoomBusinessRules();
+    SiteBusinessRules _siteBusinessRules = new SiteBusinessRules();
 
     UtilitiesNotificationTestType _utilitiesNotificationTestType = new UtilitiesNotificationTestType();
     UtilitiesNotificationMaterialType _utilitiesNotificationMaterialType = new UtilitiesNotificationMaterialType();
@@ -186,5 +187,19 @@ public class NotificationBusinessRules {
 
     public int NotificationCancelTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
         return _utilitiesNotificationTest.GetNotificationCancelTestQuantityByRoom(conn, roomId).getCount();
+    }
+
+    public ArrayList<String> ListTestNotification(SQLiteConnectionHelper conn, String siteName) {
+        final String SiteId = _siteBusinessRules.GetSiteIdByName(conn, siteName);
+
+        ArrayList<NotificationBusinessRules> testNotificationList = _utilitiesNotificationTest.GetListNotificationBySite(conn, Integer.parseInt(SiteId));
+
+        NotificationTestInfo = new ArrayList<String>();
+
+        for (int i=0; i<testNotificationList.size(); i++){
+            NotificationTestInfo.add("Novedad de Examen: "+testNotificationList.get(i).getTestCode());
+        }
+
+        return NotificationTestInfo;
     }
 }
