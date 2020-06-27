@@ -5,6 +5,8 @@ import android.database.Cursor;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesRooms;
 
+import java.util.ArrayList;
+
 public class RoomBusinessRules {
     public int NumberTest;
     public int MissingTest;
@@ -17,6 +19,9 @@ public class RoomBusinessRules {
     public void GetSRoomResume(){}
 
     UtilitiesRooms _utilitiesRooms = new UtilitiesRooms();
+
+    ArrayList<String> RoomsListResult = new ArrayList<String>();
+    ArrayList<String> RoomsNameResult;
 
     public int CountRoomsBySite(SQLiteConnectionHelper conn){
         return _utilitiesRooms.GetRoomsBySite(conn).getCount();
@@ -44,5 +49,28 @@ public class RoomBusinessRules {
         }
 
         return roomId;
+    }
+
+    public ArrayList<String> GetRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        RoomsNameResult = _utilitiesRooms.SelectRoomListBySiteName(conn, siteName);
+
+        RoomsListResult.add("Seleccione");
+        for (int i=0; i<RoomsNameResult.size();i++){
+            RoomsListResult.add(RoomsNameResult.get(i));
+        }
+
+        return RoomsListResult;
+    }
+
+    public String GetRoomIdByName(SQLiteConnectionHelper conn, String roomNameSelected) {
+        Cursor cursorRoomIdByName = _utilitiesRooms.SelectRoomIdByName(conn, roomNameSelected);
+
+        String roomName = null;
+
+        if (cursorRoomIdByName.moveToFirst()) {
+            roomName = String.valueOf(cursorRoomIdByName.getString(0));
+        }
+
+        return roomName;
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class SiteDetailActivity extends AppCompatActivity {
 
     SQLiteConnectionHelper conn = new SQLiteConnectionHelper(this,"bd_LogisticApp",null,1);
 
+    EditText SiteDetailName;
     TextView SiteDetailRoomQuantityDetail;
     TextView SiteDetailMissingMaterialDetail;
     TextView SiteDetailAdditionalMaterialDetail;
@@ -38,13 +40,17 @@ public class SiteDetailActivity extends AppCompatActivity {
     ParticipantBusinessRules _participantBusinessRules = new ParticipantBusinessRules();
     TestBusinessRules _testBusinessRules = new TestBusinessRules();
 
+    String SiteNameSiteDetail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_site_detail);
 
-        final Intent NotificationBySiteActivity = new Intent(this,NotificationBySiteActivity.class);
-        final Intent RoomResumeActivity = new Intent(this,RoomResumeActivity.class);
+        final Intent notificationBySiteActivityLauncher = new Intent(this,NotificationBySiteActivity.class);
+        final Intent roomDetailActivityLauncher = new Intent(this,RoomDetailActivity.class);
+
+        SiteNameSiteDetail = getIntent().getStringExtra("siteName");
 
         ShowSiteDetail();
 
@@ -54,21 +60,22 @@ public class SiteDetailActivity extends AppCompatActivity {
         SiteDetailViewResumeByRoom.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"addressing to ViewResumeByRoom",Toast.LENGTH_SHORT).show();
-                startActivity(NotificationBySiteActivity);
+                roomDetailActivityLauncher.putExtra("siteNameForRoomResume", SiteNameSiteDetail);
+                startActivity(roomDetailActivityLauncher);
+
             }
         });
 
         SiteDetailViewNotificationBySite.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"addressing to ViewNotificationBySite",Toast.LENGTH_SHORT).show();
-                startActivity(RoomResumeActivity);
+                startActivity(notificationBySiteActivityLauncher);
             }
         });
     }
 
     public void ShowSiteDetail(){
+        SiteDetailName = findViewById(R.id.txt_site_detail_name);
         SiteDetailRoomQuantityDetail = findViewById(R.id.lbl_site_detail_room_quantity_detail);
         SiteDetailMissingMaterialDetail = findViewById(R.id.lbl_site_detail_missing_material_detail);
         SiteDetailAdditionalMaterialDetail = findViewById(R.id.lbl_site_detail_additional_material_detail);
@@ -88,5 +95,6 @@ public class SiteDetailActivity extends AppCompatActivity {
         SiteDetailMissingParticipantsDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingParticipants(conn)));
         SiteDetailCancelTestDetail.setText(String.valueOf(_notificationBusinessRules.CountCancelTest(conn)));
         SiteDetailMissingPersonalDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingPersonalBySite(conn)));
+
     }
 }
