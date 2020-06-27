@@ -45,4 +45,16 @@ public class RoomBusinessRules {
 
         return roomId;
     }
+
+    public String GetRoomIdByName(SQLiteConnectionHelper conn, String roomNameSelected) {
+        Cursor cursorRoomIdByName = _utilitiesRooms.SelectRoomIdByName(conn, roomNameSelected);
+
+        String roomName = null;
+
+        if (cursorRoomIdByName.moveToFirst()) {
+            roomName = String.valueOf(cursorRoomIdByName.getString(0));
+        }
+
+        return roomName;
+    }
 }
