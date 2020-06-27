@@ -115,5 +115,12 @@ public class UtilitiesRooms {
 
         return cursor;
     }
+    public Cursor SelectRoomIdByName(SQLiteConnectionHelper conn, String roomNameSelected) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT room_id FROM ROOMS WHERE room_name = '"+roomNameSelected+"'",null);
+
+        return cursor;
+    }
 }
 

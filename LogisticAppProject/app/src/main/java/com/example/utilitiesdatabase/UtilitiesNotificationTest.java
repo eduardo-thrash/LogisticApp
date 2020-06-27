@@ -115,6 +115,28 @@ public class UtilitiesNotificationTest {
         return TestList;
     }
 
+    public ArrayList<NotificationBusinessRules> GetListNotificationByRoom(SQLiteConnectionHelper conn, int RoomId) {
+
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id where TS.room_id = (SELECT R.room_id FROM ROOMS R WHERE R.room_id = "+RoomId+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+            notificationTest.setNotificationTestTypeName(cursor.getString(1));
+            notificationTest.setNotificationTestTypeDescription(cursor.getString(2));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
+    }
+
     public Cursor TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
         int IntRoomId = Integer.parseInt(roomId);
 
