@@ -197,9 +197,28 @@ public class NotificationBusinessRules {
         NotificationTestInfo = new ArrayList<String>();
 
         for (int i=0; i<testNotificationList.size(); i++){
-            NotificationTestInfo.add("Novedad de Examen: "+testNotificationList.get(i).getTestCode());
+            NotificationTestInfo.add(testNotificationList.get(i).getTestCode());
         }
 
         return NotificationTestInfo;
+    }
+
+    public NotificationBusinessRules GetNotificationDetail(SQLiteConnectionHelper conn, String testCodeNotification) {
+
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        NotificationBusinessRules NotificationDetail = new NotificationBusinessRules();
+
+        Cursor cursorNotificationTestDetail = _utilitiesNotificationTest.SelectNotificationTestDetail(conn, testCodeNotification);
+
+        while (cursorNotificationTestDetail.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursorNotificationTestDetail.getString(0));
+            notificationTest.setNotificationTestTypeName(cursorNotificationTestDetail.getString(1));
+            notificationTest.setNotificationTestTypeDescription(cursorNotificationTestDetail.getString(2));
+
+        }
+
+        return notificationTest;
     }
 }
