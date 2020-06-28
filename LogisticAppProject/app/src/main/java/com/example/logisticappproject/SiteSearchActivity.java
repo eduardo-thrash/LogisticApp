@@ -28,7 +28,9 @@ public class SiteSearchActivity extends AppCompatActivity {
 
     DepartmentBusinessRules department = new DepartmentBusinessRules();
     SiteBusinessRules _siteBusinessRules = new SiteBusinessRules();
+
     CityBusinessRules city;
+    Intent activityLauncher;
 
     ArrayList<String> DepartmentList = new ArrayList<String>();
     ArrayList<String> CityList;
@@ -41,6 +43,8 @@ public class SiteSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_site_search);
+
+        activityLauncher = new Intent(this, SiteDetailActivity.class);
 
         SiteDepartment = findViewById(R.id.sp_site_department);
         SiteCity = findViewById(R.id.sp_site_city);
@@ -119,6 +123,20 @@ public class SiteSearchActivity extends AppCompatActivity {
         final ArrayList<String> SiteInformationList = _siteBusinessRules.SitesListByCity(conn, cityOption);
 
         ArrayAdapter adapterSitesByCity = new ArrayAdapter(this,android.R.layout.simple_list_item_1,SiteInformationList);
+
         SiteList.setAdapter(adapterSitesByCity);
+
+        SiteList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String siteName = SiteInformationList.get(position);
+
+
+                activityLauncher.putExtra("siteName", siteName);
+                startActivity(activityLauncher);
+            }
+        });
     }
 }
