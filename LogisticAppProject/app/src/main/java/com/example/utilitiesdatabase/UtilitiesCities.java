@@ -16,7 +16,10 @@ public class UtilitiesCities {
         ArrayList<String> InsertCities;
         InsertCities = new ArrayList<>();
 
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (1, 'Bogota', 1)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (6, 'Bucaramanga',16)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (23, 'Monteria',8)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (29, 'Pereira',15)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (14, 'Floridablanca',16)");
 
         for (int i = 0; i<InsertCities.size();i++){
             db.execSQL(InsertCities.get(i));
