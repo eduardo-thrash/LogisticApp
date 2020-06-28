@@ -18,8 +18,9 @@ public class RoomBusinessRules {
 
     public void GetSRoomResume(){}
 
-    ArrayList<String> RoomsListResult = new ArrayList<String>();
     UtilitiesRooms _utilitiesRooms = new UtilitiesRooms();
+
+    ArrayList<String> RoomsListResult = new ArrayList<String>();
     ArrayList<String> RoomsNameResult;
 
     public int CountRoomsBySite(SQLiteConnectionHelper conn){
@@ -50,6 +51,17 @@ public class RoomBusinessRules {
         return roomId;
     }
 
+    public ArrayList<String> GetRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        RoomsNameResult = _utilitiesRooms.SelectRoomListBySiteName(conn, siteName);
+
+        RoomsListResult.add("Seleccione");
+        for (int i=0; i<RoomsNameResult.size();i++){
+            RoomsListResult.add(RoomsNameResult.get(i));
+        }
+
+        return RoomsListResult;
+    }
+
     public String GetRoomIdByName(SQLiteConnectionHelper conn, String roomNameSelected) {
         Cursor cursorRoomIdByName = _utilitiesRooms.SelectRoomIdByName(conn, roomNameSelected);
 
@@ -60,16 +72,5 @@ public class RoomBusinessRules {
         }
 
         return roomName;
-    }
-
-    public ArrayList<String> GetRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
-        RoomsNameResult = _utilitiesRooms.SelectRoomListBySiteName(conn, siteName);
-
-        RoomsListResult.add("Seleccione");
-        for (int i=0; i<RoomsNameResult.size();i++){
-            RoomsListResult.add(RoomsNameResult.get(i));
-        }
-
-        return RoomsListResult;
     }
 }
