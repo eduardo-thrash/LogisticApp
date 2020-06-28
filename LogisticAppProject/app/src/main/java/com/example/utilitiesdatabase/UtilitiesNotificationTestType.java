@@ -18,13 +18,10 @@ public class UtilitiesNotificationTestType {
         ArrayList<String> InsertNotificationTestType;
         InsertNotificationTestType = new ArrayList<>();
 
-        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(1,'Examen Perdido')");
+        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(1,'Examen faltante')");
         InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(2,'Examen sobrante')");
-        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(3,'Examen Anulado')");
-        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(4,'Participante ausente')");
-        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(5,'Duplicado')");
-
-
+        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(3,'Participante ausente')");
+        InsertNotificationTestType.add("INSERT INTO NOTIFICATION_TEST_TYPE(notification_test_type_id,notification_test_type_name)VALUES(4,'Prueba anulada')");
 
         for (int i = 0; i<InsertNotificationTestType.size();i++){
             db.execSQL(InsertNotificationTestType.get(i));

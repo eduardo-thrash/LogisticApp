@@ -82,8 +82,6 @@ public class UtilitiesNotificationTest {
         ArrayList<String> InsertNotificationTest;
         InsertNotificationTest = new ArrayList<>();
 
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_type_id,test_id,notification_test_description)VALUES("+notificationTestTypeId+","+test_id+",'"+testDescription+"')");
-
         for (int i = 0; i<InsertNotificationTest.size();i++){
             db.execSQL(InsertNotificationTest.get(i));
         }

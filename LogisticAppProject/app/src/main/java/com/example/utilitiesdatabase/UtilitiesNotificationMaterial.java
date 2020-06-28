@@ -21,15 +21,6 @@ public class UtilitiesNotificationMaterial {
         ArrayList<String> InsertNotificationMaterial;
         InsertNotificationMaterial = new ArrayList<>();
 
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(1,1,1,'Material de Evaluacion')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(2,2,2,'Material de Sitio')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(3,3,3,'Material Incompleto ')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(4,4,4,'Codigo Material ')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(5,5,5,'Material Sobrante')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,Material_id,notification_material_description)VALUES(6,6,6,'Material Faltante')");
-
-
-
         for (int i = 0; i<InsertNotificationMaterial.size();i++){
             db.execSQL(InsertNotificationMaterial.get(i));
         }
