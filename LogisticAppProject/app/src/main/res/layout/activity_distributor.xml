@@ -1,88 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DistributorActivity">
 
-    <Button
-        android:id="@+id/bSalir3"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_lock_power_off"
-        android:text="Salir"
-        android:textStyle="bold"
-        android:onClick="DistributorLogout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena"
-        app:layout_constraintVertical_bias="0.004"
-        />
-
-    <Button
-        android:id="@+id/bCambiarContrasena"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_manage"
-        android:onClick="PasswordChangeActivity"
-        android:text="Cambiar Contraseña"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bAyuda" />
-
-    <Button
-        android:id="@+id/bAyuda"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="12dp"
-
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_menu_directions"
-        android:onClick="HelpActivity"
-        android:text="Ayuda"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bRegistrarDespacho"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bRegistrarDespacho"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_mapmode"
-        android:onClick="DepartureRegisterActivity"
-        android:text="Registrar Despacho"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bConsultarNvedadesSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeDistribuidor" />
-
-    <TextView
-        android:id="@+id/tMensajeDistribuidor"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="283dp"
-        android:layout_marginLeft="283dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="612dp"
-        android:text="ROL: Distribuidor"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lbl_menu_distributor_header"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#082F59"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="MENU DISTRIBUIDOR"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/bRegistrarDespacho"
+            android:layout_below="@+id/lbl_menu_distributor_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:drawableLeft="@android:drawable/ic_menu_save"
+            style="@style/Widget.AppCompat.Button"
+            android:text="Registrar Despacho"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:onClick="DepartureRegisterActivity"
+            />
+
+        <Button
+            android:id="@+id/bAyuda"
+            android:layout_below="@+id/bRegistrarDespacho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:drawableLeft="@android:drawable/ic_menu_help"
+            style="@style/Widget.AppCompat.Button"
+            android:text="Ayuda"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:onClick="HelpActivity"
+            />
+
+        <Button
+            android:id="@+id/bCambiarContrasena"
+            android:layout_below="@+id/bAyuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:drawableLeft="@android:drawable/ic_menu_upload_you_tube"
+            style="@style/Widget.AppCompat.Button"
+            android:text="Cambiar Contrasena"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:onClick="PasswordChangeActivity"
+            />
+
+        <Button
+            android:id="@+id/bSalir3"
+            android:layout_below="@+id/bCambiarContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+            style="@style/Widget.AppCompat.Button"
+            android:text="Salir"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:onClick="DistributorLogout"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

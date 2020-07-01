@@ -15,7 +15,7 @@
             style="@style/Widget.AppCompat.TextView.SpinnerItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#345068"
+            android:background="#082F59"
             android:gravity="center_horizontal|center_vertical"
             android:text="DELEGADO"
             android:textColor="#FFFFFF"
@@ -25,55 +25,113 @@
 
         <Button
             android:id="@+id/btn_delegate_material_search_option"
+            android:layout_below="@+id/lbl_delegate_menu_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lbl_delegate_menu_title"
-            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
             android:text="CONSULTAR MATERIAL"
-            android:onClick="MaterialSearchActivity"/>
+            android:onClick="MaterialSearchActivity"
+            />
 
         <Button
             android:id="@+id/btn_delegate_material_verify_option"
-            android:layout_width="match_parent"
-            android:onClick="ScanMaterialActivity"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/btn_delegate_material_search_option"
-            android:gravity="center_horizontal|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:onClick="ScanMaterialActivity"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/checkbox_on_background"
             android:text="VERIFICAR MATERIAL" />
 
         <Button
             android:id="@+id/btn_delegate_notification_report_option"
+            android:layout_below="@+id/btn_delegate_material_verify_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_delegate_material_verify_option"
-            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/stat_sys_warning"
             android:text="REPORTAR NOVEDAD"
-            android:onClick="NotificationMaterialActivity"/>
+            android:onClick="NotificationMaterialActivity"
+            />
 
         <Button
             android:id="@+id/btn_delegate_site_resume_option"
+            android:layout_below="@+id/btn_delegate_notification_report_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_delegate_notification_report_option"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="VER RESUMEN SITIO" />
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_recent_history"
+            android:text="VER RESUMEN SITIO"
+            android:onClick="SiteResumeActivity"
+            />
 
         <Button
             android:id="@+id/btn_delegate_help_option"
+            android:layout_below="@+id/btn_delegate_site_resume_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_delegate_site_resume_option"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="AYUDA" />
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_help"
+            android:text="AYUDA"
+            android:onClick="HelpActivity"
+            />
+
+        <Button
+            android:id="@+id/btn_delegate_change_password_option"
+            android:layout_below="@+id/btn_delegate_help_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/checkbox_on_background"
+            android:text="CAMBIAR CONTRASEÑA"
+            android:onClick="PasswordChangeActivity"/>
 
         <Button
             android:id="@+id/btn_delegate_session_close_option"
+            android:layout_below="@+id/btn_delegate_change_password_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_delegate_help_option"
-            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
             android:text="SALIR"
-            android:onClick="DelegateLogout"/>
+            android:onClick="DelegateLogout"
+            />
 
     </RelativeLayout>
 
