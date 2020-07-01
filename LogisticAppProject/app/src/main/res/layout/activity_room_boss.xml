@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RoomBossActivity">
 
-    <Button
-        android:id="@+id/bSalir"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_lock_power_off"
-        android:text="Salir"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        android:onClick="RoomBossLogout"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bCambiarContrasena"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_menu_manage"
-        android:onClick="PasswordChangeActivity"
-        android:text="Cambiar Contraseña"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bSalir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bAyuda"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_menu_directions"
-
-        android:onClick="HelpActivity"
-        android:text="Ayuda"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bResumenSalon"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_menu_compass"
-        android:onClick="RoomResumeActivity"
-        android:text="Resumen de Salón"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bAyuda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bConsultarNovedadSalon"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:onClick="PageRoomNotificationActivity"
-        android:text="Consultar Novedad de Salón"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bResumenSalon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bEscanearExamen"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:drawableLeft="@android:drawable/ic_menu_camera"
-        android:onClick="TestScanActivity"
-        android:text="Escanear Examen"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarExamen" />
-
-    <Button
-        android:id="@+id/bConsultarExamen"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        android:drawableLeft="@android:drawable/ic_menu_agenda"
-        android:onClick="TestSearchActivity"
-        android:text="Consultar Examen"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bEscanearExamen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeJefe" />
-
-    <Button
-        android:id="@+id/bReportarNovedadExamen"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="4dp"
-        android:drawableLeft="@android:drawable/ic_menu_add"
-        android:onClick="SiteNotificationsDetailsActivity"
-        android:text="Reportar Novedad de Examen"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bConsultarNovedadSalon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bEscanearExamen" />
-
-    <TextView
-        android:id="@+id/tMensajeJefe"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="246dp"
-        android:layout_marginLeft="246dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="32dp"
-        android:text="ROL: Jefe de Salón "
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/lbl_room_boss_menu_title"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#082F59"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="JEFE DE SALÓN"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/bConsultarExamen"
+            android:layout_below="@+id/lbl_room_boss_menu_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:text="CONSULTAR EXAMEN"
+            android:onClick="TestSearchActivity"
+            />
+
+        <Button
+            android:id="@+id/bEscanearExamen"
+            android:layout_below="@+id/bConsultarExamen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="TestScanActivity"
+            android:text="Escanear Examen" />
+
+        <Button
+            android:id="@+id/bReportarNovedadExamen"
+            android:layout_below="@+id/bEscanearExamen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="NotificationTestActivity"
+            android:text="Reportar Novedad de Examen" />
+
+        <Button
+            android:id="@+id/bConsultarNovedadSalon"
+            android:layout_below="@+id/bReportarNovedadExamen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="PageRoomNotificationActivity"
+            android:text="Consultar Novedades de Salón" />
+
+        <Button
+            android:id="@+id/bResumenSalon"
+            android:layout_below="@+id/bConsultarNovedadSalon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="RoomResumeActivity"
+            android:text="Resumen de Salón"
+            />
+
+        <Button
+            android:id="@+id/bAyuda"
+            android:layout_below="@+id/bResumenSalon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="HelpActivity"
+            android:text="Ayuda"
+            />
+
+        <Button
+            android:id="@+id/bCambiarContrasena"
+            android:layout_below="@+id/bAyuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:onClick="PasswordChangeActivity"
+            android:text="Cambiar Contraseña"
+            />
+
+        <Button
+            android:id="@+id/bSalir"
+            android:layout_below="@+id/bCambiarContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:text="Salir"
+            android:onClick="RoomBossLogout"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

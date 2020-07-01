@@ -45,9 +45,9 @@ public class RoomBossActivity extends AppCompatActivity {
         startActivity(TestScanActivity);
     }
 
-    public void SiteNotificationDetailByRoomActivity (View view){
-        Intent SiteNotificationDetailByRoomActivity = new Intent(this, SiteNotificationDetailByRoomActivity.class);
-        startActivity(SiteNotificationDetailByRoomActivity);
+    public void NotificationTestActivity (View view){
+        Intent NotificationTestActivityLauncher = new Intent(this, NotificationTestActivity.class);
+        startActivity(NotificationTestActivityLauncher);
 
     }
 
