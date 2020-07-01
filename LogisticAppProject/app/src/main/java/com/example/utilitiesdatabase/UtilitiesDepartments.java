@@ -17,7 +17,10 @@ public class UtilitiesDepartments {
         ArrayList<String> InsertDepartments;
         InsertDepartments = new ArrayList<>();
 
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id, department_name) VALUES (1, 'Cundinamarca')");
+
+        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id,department_name) VALUES (15,'Risaralda')");
+        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id,department_name) VALUES (16,'Santander')");
+        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id,department_name) VALUES (8,'Cordoba')");
 
         for (int i = 0; i<InsertDepartments.size();i++){
             db.execSQL(InsertDepartments.get(i));

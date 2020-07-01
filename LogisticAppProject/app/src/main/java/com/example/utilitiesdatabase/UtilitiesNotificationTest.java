@@ -24,6 +24,7 @@ public class UtilitiesNotificationTest {
         ArrayList<String> InsertNotificationTest;
         InsertNotificationTest = new ArrayList<>();
 
+
         for (int i = 0; i<InsertNotificationTest.size();i++){
             db.execSQL(InsertNotificationTest.get(i));
         }
