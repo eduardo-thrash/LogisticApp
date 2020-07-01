@@ -23,8 +23,6 @@ public class UtilitiesRooms {
         InsertRooms = new ArrayList<>();
 
         InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (1,'A010',1)");
-        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (2,'A020',2)");
-        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (61,'A011',1)");
 
         for (int i = 0; i<InsertRooms.size();i++){
             db.execSQL(InsertRooms.get(i));
