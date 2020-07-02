@@ -16,7 +16,10 @@ public class UtilitiesSites {
         ArrayList<String> InsertSites;
         InsertSites = new ArrayList<>();
 
-        InsertSites.add("INSERT INTO SITES (site_id,site_name, city_id) VALUES (1,'Universidad Nacional de Colombia',1)");
+        InsertSites.add("INSERT INTO SITES (site_id,site_name, city_id) VALUES (1, 'Universidad Nacional',1)");
+        InsertSites.add("INSERT INTO SITES (site_id,site_name, city_id) VALUES (2, 'Universidad de Antioquia',2)");
+        InsertSites.add("INSERT INTO SITES (site_id,site_name, city_id) VALUES (3, 'Pontificia Universidad Javeriana',1)");
+        InsertSites.add("INSERT INTO SITES (site_id,site_name, city_id) VALUES (4, 'EAFIT',3)");
 
         for (int i = 0; i<InsertSites.size();i++){
             db.execSQL(InsertSites.get(i));

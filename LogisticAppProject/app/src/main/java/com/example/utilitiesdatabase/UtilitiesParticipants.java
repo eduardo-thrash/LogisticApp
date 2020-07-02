@@ -19,7 +19,7 @@ public class UtilitiesParticipants {
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (3, 'CC','18456320', 'Luis Gutierrez')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (4, 'CC','54789610', 'Manuel Molina')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (5, 'CC','41123654', 'Jhon Perez ')");
-        InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (6,'CC','51236526','Yenny ANdre Castro')");
+        InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (6,'CC','51236526','Yenny Andre Castro')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (7, 'CC','1021475361', 'Edisson Florez')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (8, 'CC','1010793524', 'Daniel Cifuentes')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (9, 'CC','47632147', 'Diego Torres')");
@@ -64,7 +64,6 @@ public class UtilitiesParticipants {
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (48, 'CC','80634965', 'Andres Urrego')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (49, 'CC','79836501', 'Cesar Ortiz')");
         InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (50, 'CC','54836202', 'Mayra Devia')");
-        InsertParticipants.add("INSERT INTO PARTICIPANTS (participant_id, participant_identification_type, participant_identification_id, participant_name) VALUES (51, 'CC','1010745830', 'Brayan Mosquera')");
 
 
         for (int i = 0; i<InsertParticipants.size();i++){
