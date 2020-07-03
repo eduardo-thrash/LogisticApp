@@ -71,8 +71,5 @@ public class UtilitiesDepartures {
 
         db.execSQL("PRAGMA foreign_keys = OFF");
         db.execSQL("UPDATE MATERIALS SET status_id = 2 WHERE material_code = '" + materialCode + "'");
-
-        //Cursor cursor = db.rawQuery("PRAGMA foreign_keys = OFF",null);
-        //Cursor cursor2 = db.rawQuery("UPDATE MATERIALS SET status_id = 2 WHERE material_code = 'MT00000002'",null);
     }
 }
