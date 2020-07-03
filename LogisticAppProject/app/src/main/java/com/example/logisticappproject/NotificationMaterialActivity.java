@@ -44,6 +44,8 @@ public class NotificationMaterialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_material);
 
+        final Intent launcherDelegateActivity = new Intent(this, DelegateActivity.class);
+
         MaterialCodeSearch = findViewById(R.id.sp_material_code_search);
         MaterialNotificationType = findViewById(R.id.sp_notification_material_type);
         MaterialStatusValue = findViewById(R.id.lbl_material_status_value);
@@ -97,7 +99,8 @@ public class NotificationMaterialActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Descripción es obligatorio.",Toast.LENGTH_SHORT).show();
                 }else{
                     if(_notificationBusinessRules.SaveMaterialNotification(conn,MaterialId,MaterialNotificationType,MaterialDescription)){
-                        Toast.makeText(getApplicationContext(),"Novedad para material "+materialCode+" reportada.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Novedad para material "+materialCode+" reportada.",Toast.LENGTH_LONG).show();
+                        startActivity(launcherDelegateActivity);
                     }else{
                         Toast.makeText(getApplicationContext(),"Se presentó un error al reportar novedad. Intente nuevamente.",Toast.LENGTH_SHORT).show();
                     }
