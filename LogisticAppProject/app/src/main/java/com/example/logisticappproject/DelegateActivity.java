@@ -59,6 +59,7 @@ public class DelegateActivity extends AppCompatActivity {
 
         if(_sessionBusinessRules.DestroySession(conn)){
             Intent LauncherActivity = new Intent(this, com.example.logisticappproject.LoginActivity.class);
+            LauncherActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(LauncherActivity);
         }else{
             Toast.makeText(getApplicationContext(),"Error al cerrar sesión, intente de nuevo.",Toast.LENGTH_LONG).show();
