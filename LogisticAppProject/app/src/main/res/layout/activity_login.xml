@@ -14,7 +14,7 @@
             android:id="@+id/txt_login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número de indentificación"
+            android:hint="Usuario"
             android:inputType="number|textPersonName"
             android:layout_marginTop="100dp"/>
 
@@ -22,7 +22,7 @@
             android:id="@+id/txt_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número de indentificación"
+            android:hint="Contraseña"
 
             android:inputType="textPassword"
             android:layout_below="@+id/txt_login_username"
