@@ -87,15 +87,14 @@ public class SiteDetailActivity extends AppCompatActivity {
         SiteDetailCancelTestDetail = findViewById(R.id.lbl_site_cancel_test_detail);
         SiteDetailMissingPersonalDetail = findViewById(R.id.lbl_site_detail_missing_personal_detail);
 
+        SiteDetailName.setText(SiteNameSiteDetail);
         SiteDetailRoomQuantityDetail.setText(String.valueOf(_siteBusinessRules.CountRoomsBySite(conn)));
-        SiteDetailMissingMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingMaterialBySite(conn)));
-        SiteDetailAdditionalMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountAdditionalMaterialBySite(conn)));
-        SiteDetailRoomNumberDetail.setText(String.valueOf(_roomBusinessRules.CountRoomsBySite(conn)));
+        SiteDetailMissingMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingMaterialBySiteName(conn, SiteNameSiteDetail)));
+        SiteDetailAdditionalMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountAdditionalMaterialBySiteName(conn, SiteNameSiteDetail)));
         SiteDetailParticipants.setText(String.valueOf(_participantBusinessRules.CountParticipantsBySite(conn)));
         SiteDetailParticipantsPresentDetail.setText(String.valueOf(_testBusinessRules.CountPresentParticipants(conn)));
         SiteDetailMissingParticipantsDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingParticipants(conn)));
         SiteDetailCancelTestDetail.setText(String.valueOf(_notificationBusinessRules.CountCancelTest(conn)));
         SiteDetailMissingPersonalDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingPersonalBySite(conn)));
-
     }
 }

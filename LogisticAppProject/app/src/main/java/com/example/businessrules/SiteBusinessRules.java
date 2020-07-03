@@ -53,9 +53,7 @@ public class SiteBusinessRules {
 
     ArrayList<String> SiteInfo;
 
-    public int CountRoomsBySite(SQLiteConnectionHelper conn){
-        return _utilitiesRooms.GetRoomsBySite(conn).getCount();
-    }
+
 
     public String SiteNameByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
 
@@ -118,5 +116,13 @@ public class SiteBusinessRules {
         }
 
         return siteId;
+    }
+
+    public int CountRoomsBySite(SQLiteConnectionHelper conn){
+        return _utilitiesRooms.GetRoomsBySite(conn).getCount();
+    }
+
+    public int CountRoomsBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        return _utilitiesRooms.SelectRoomsBySiteName(conn, siteNameSiteDetail).getCount();
     }
 }

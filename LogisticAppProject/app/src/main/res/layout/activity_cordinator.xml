@@ -40,24 +40,8 @@
             />
 
         <Button
-            android:id="@+id/btn_coordinator_notification_search_by_site_option"
-            android:layout_below="@+id/btn_coordinator_site_search_option"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="60dp"
-            android:layout_marginLeft="60dp"
-            android:background="#125EAF"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:drawableLeft="@android:drawable/checkbox_on_background"
-            android:text="CONSULTAR NOVEDADES DEL SITIO"
-            android:onClick="RoomNotification"
-            />
-
-        <Button
             android:id="@+id/btn_coordinator_help_option"
-            android:layout_below="@+id/btn_coordinator_notification_search_by_site_option"
+            android:layout_below="@+id/btn_coordinator_site_search_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

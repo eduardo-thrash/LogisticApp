@@ -3,11 +3,13 @@ package com.example.logisticappproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.businessrules.NotificationBusinessRules;
 import com.example.businessrules.ParticipantBusinessRules;
 import com.example.businessrules.RoomBusinessRules;
+import com.example.businessrules.SessionBusinessRules;
 import com.example.businessrules.SiteBusinessRules;
 import com.example.businessrules.TestBusinessRules;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
@@ -16,6 +18,7 @@ public class SiteResumeActivity extends AppCompatActivity {
 
     SQLiteConnectionHelper conn = new SQLiteConnectionHelper(this,"bd_LogisticApp",null,1);
 
+    EditText SiteResumeName;
     TextView SiteResumeRoomQuantityDetail;
     TextView SiteResumeMissingMaterialDetail;
     TextView SiteResumeAdditionalMaterialDetail;
@@ -31,16 +34,22 @@ public class SiteResumeActivity extends AppCompatActivity {
     RoomBusinessRules _roomBusinessRules = new RoomBusinessRules();
     ParticipantBusinessRules _participantBusinessRules = new ParticipantBusinessRules();
     TestBusinessRules _testBusinessRules = new TestBusinessRules();
+    SessionBusinessRules _sessionBusinessRules = new SessionBusinessRules();
+
+    int userIdSession = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_site_resume);
 
+        userIdSession = _sessionBusinessRules.ValidateSessionActive(conn);
+
         ShowSiteResume();
     }
 
     public void ShowSiteResume(){
+        SiteResumeName = findViewById(R.id.txt_site_resume_name);
         SiteResumeRoomQuantityDetail = findViewById(R.id.lbl_site_resume_room_quantity_detail);
         SiteResumeMissingMaterialDetail = findViewById(R.id.lbl_site_resume_missing_material_detail);
         SiteResumeAdditionalMaterialDetail = findViewById(R.id.lbl_site_resume_additional_material_detail);
@@ -51,6 +60,7 @@ public class SiteResumeActivity extends AppCompatActivity {
         SiteResumeCancelTestDetail = findViewById(R.id.lbl_site_cancel_test_detail);
         SiteResumeMissingPersonalDetail = findViewById(R.id.lbl_site_resume_missing_personal_detail);
 
+        SiteResumeName.setText(_siteBusinessRules.SiteNameByUser(conn, userIdSession));
         SiteResumeRoomQuantityDetail.setText(String.valueOf(_siteBusinessRules.CountRoomsBySite(conn)));
         SiteResumeMissingMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountMissingMaterialBySite(conn)));
         SiteResumeAdditionalMaterialDetail.setText(String.valueOf(_notificationBusinessRules.CountAdditionalMaterialBySite(conn)));

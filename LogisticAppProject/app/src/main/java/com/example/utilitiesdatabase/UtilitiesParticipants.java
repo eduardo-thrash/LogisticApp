@@ -2,6 +2,7 @@ package com.example.utilitiesdatabase;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -129,7 +130,15 @@ public class UtilitiesParticipants {
 
         SQLiteDatabase db = conn.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM TESTS WHERE status_id = 5 AND room_id = "+IntRoomId+"",null);
+        Cursor cursor = db.rawQuery("SELECT * FROM TESTS WHERE test_status_id = 4 AND room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetParticipantsBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM PARTICIPANTS",null);
 
         return cursor;
     }

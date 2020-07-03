@@ -47,7 +47,7 @@ public class MaterialSearchActivity extends AppCompatActivity {
         String siteName = _siteBusinessRules.SiteNameByUser(conn, userIdSession);
         String delegateName = _userBusinessRules.UserNameByUser(conn, userIdSession);
 
-        ListMaterialByUser(conn, userIdSession);
+        ListMaterialBySiteName(conn, siteName);
 
         MaterialsSiteDescription.setText(siteName);
         MaterialsDelegateDescription.setText(delegateName);
@@ -56,6 +56,15 @@ public class MaterialSearchActivity extends AppCompatActivity {
     private void ListMaterialByUser(SQLiteConnectionHelper conn, int userIdSession) {
 
         final ArrayList<String> materialList = _materialBusinessRules.MaterialListByUser(conn, userIdSession);
+
+        ArrayAdapter adapterMaterialList = new ArrayAdapter(this,android.R.layout.simple_list_item_1,materialList);
+
+        ListViewMaterial.setAdapter(adapterMaterialList);
+    }
+
+    private void ListMaterialBySiteName(SQLiteConnectionHelper conn, String siteName) {
+
+        final ArrayList<String> materialList = _materialBusinessRules.GetMaterialListBySiteName(conn, siteName);
 
         ArrayAdapter adapterMaterialList = new ArrayAdapter(this,android.R.layout.simple_list_item_1,materialList);
 

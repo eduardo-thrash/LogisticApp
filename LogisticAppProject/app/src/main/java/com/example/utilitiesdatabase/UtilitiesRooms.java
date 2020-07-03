@@ -2,6 +2,7 @@ package com.example.utilitiesdatabase;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -35,14 +36,7 @@ public class UtilitiesRooms {
         db.close();
     }
 
-    public Cursor GetRoomsBySite(SQLiteConnectionHelper conn){
 
-        SQLiteDatabase db = conn.getReadableDatabase();
-
-        Cursor cursor = db.rawQuery("SELECT * FROM ROOMS",null);
-
-        return cursor;
-    }
 
     public Cursor GetRoomNameByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
         SQLiteDatabase db = conn.getReadableDatabase();
@@ -78,6 +72,23 @@ public class UtilitiesRooms {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT room_id FROM ROOMS WHERE room_name = '"+roomNameSelected+"'",null);
+
+        return cursor;
+    }
+
+    public Cursor GetRoomsBySite(SQLiteConnectionHelper conn){
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM ROOMS",null);
+
+        return cursor;
+    }
+
+    public Cursor SelectRoomsBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM ROOMS WHERE site_id = (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
 
         return cursor;
     }

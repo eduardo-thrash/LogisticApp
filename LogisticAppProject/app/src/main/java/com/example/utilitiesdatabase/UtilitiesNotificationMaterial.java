@@ -2,6 +2,7 @@ package com.example.utilitiesdatabase;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -70,5 +71,21 @@ public class UtilitiesNotificationMaterial {
         db.close();
 
         return true;
+    }
+
+    public Cursor SelectMissingMaterialBySite(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL NT JOIN MATERIALS M ON NT.material_id = M.material_id WHERE notification_material_type_id = 1 AND M.site_id IN (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
+
+        return cursor;
+    }
+
+    public Cursor SelectAdditionalMaterialBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL NT JOIN MATERIALS M ON NT.material_id = M.material_id WHERE notification_material_type_id = 2 AND M.site_id IN (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
+
+        return cursor;
     }
 }

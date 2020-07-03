@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.businessrules.MaterialBusinessRules;
 import com.example.businessrules.ParticipantBusinessRules;
@@ -20,6 +21,7 @@ public class TestDetailActivity extends AppCompatActivity {
 
     SiteBusinessRules _siteBusinessRules = new SiteBusinessRules();
     ParticipantBusinessRules _participantBusinessRules = new ParticipantBusinessRules();
+    TestBusinessRules _testBusinessRules = new TestBusinessRules();
 
     String TestCode;
 
@@ -35,6 +37,8 @@ public class TestDetailActivity extends AppCompatActivity {
 
         TestCode = getIntent().getStringExtra("testCode");
 
+        _testBusinessRules.TestStatusUpdateByScan(conn, TestCode);
+
         TestDetailCodeDescription = findViewById(R.id.lbl_test_detail_code_description);
         TestDetailSiteNameDescription = findViewById(R.id.lbl_test_detail_site_name_description);
         TestDetailDocumentDescription = findViewById(R.id.lbl_test_detail_document_description);
@@ -44,6 +48,8 @@ public class TestDetailActivity extends AppCompatActivity {
         TestDetailSiteNameDescription.setText(_siteBusinessRules.SiteNameByTestCode(conn,TestCode));
         TestDetailDocumentDescription.setText(_participantBusinessRules.ParticipantDocumentTypeByTestCode(conn,TestCode)+" - "+_participantBusinessRules.ParticipantDocumentIdByTestCode(conn,TestCode));
         TestDetailParticipantNameDescription.setText(_participantBusinessRules.ParticipantNameByTestCode(conn,TestCode));
+
+        Toast.makeText(getApplicationContext(),"Examen "+TestCode+" actualizado.", Toast.LENGTH_SHORT).show();
     }
 
     public void NotificationTestActivity (View view){

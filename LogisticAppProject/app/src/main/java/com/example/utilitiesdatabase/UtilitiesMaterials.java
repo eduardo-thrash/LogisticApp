@@ -60,7 +60,7 @@ public class UtilitiesMaterials {
         SQLiteDatabase db = conn.getWritableDatabase();
 
         db.execSQL("PRAGMA foreign_keys = OFF");
-        db.execSQL("UPDATE MATERIALS SET status_id = 5 WHERE material_code = '" + materialCode + "'");
+        db.execSQL("UPDATE MATERIALS SET status_id = 3 WHERE material_code = '" + materialCode + "'");
 
     }
 
@@ -115,5 +115,32 @@ public class UtilitiesMaterials {
         Cursor cursor = db.rawQuery("SELECT material_id FROM MATERIALS WHERE material_code = '"+materialCode+"'",null);
 
         return cursor;
+    }
+
+    public ArrayList<MaterialBusinessRules> SelectMaterialListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        MaterialBusinessRules material = new MaterialBusinessRules();
+        ArrayList<MaterialBusinessRules> MaterialDepartures = new ArrayList<MaterialBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT M.material_code, S.status_name FROM MATERIALS M INNER JOIN STATUS S ON M.status_id = S.status_id WHERE M.site_id = (SELECT site_id FROM SITES WHERE site_name = '"+siteName+"')",null);
+
+        while (cursor.moveToNext()){
+            material = new MaterialBusinessRules();
+
+            material.setMaterialCode(cursor.getString(0));
+            material.setMaterialStatus(cursor.getString(1));
+
+            MaterialDepartures.add(material);
+        }
+
+        return MaterialDepartures;
+    }
+
+    public void UpdateMaterialForScan(SQLiteConnectionHelper conn, String materialCodeContents) {
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.execSQL("PRAGMA foreign_keys = OFF");
+        db.execSQL("UPDATE MATERIALS SET status_id = 3 WHERE material_code = '" + materialCodeContents + "'");
     }
 }

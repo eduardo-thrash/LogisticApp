@@ -62,4 +62,8 @@ public class ParticipantBusinessRules {
     public int PresentParticipantsByRoom(SQLiteConnectionHelper conn, String roomId) {
         return _utilitiesParticipants.GetPresentParticipantsByRoom(conn, roomId).getCount();
     }
+
+    public int CountParticipantsBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        return _utilitiesParticipants.GetParticipantsBySiteName(conn, siteNameSiteDetail).getCount();
+    }
 }

@@ -221,4 +221,12 @@ public class NotificationBusinessRules {
 
         return notificationTest;
     }
+
+    public int CountMissingMaterialBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        return _utilitiesNotificationMaterial.SelectMissingMaterialBySite(conn, siteNameSiteDetail).getCount();
+    }
+
+    public int CountAdditionalMaterialBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        return _utilitiesNotificationMaterial.SelectAdditionalMaterialBySiteName(conn, siteNameSiteDetail).getCount();
+    }
 }

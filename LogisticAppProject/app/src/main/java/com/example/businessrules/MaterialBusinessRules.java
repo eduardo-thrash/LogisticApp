@@ -136,6 +136,21 @@ public class MaterialBusinessRules {
         return MaterialInfo;
     }
 
+    public ArrayList<String> GetMaterialListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+
+        ArrayList<MaterialBusinessRules> materialList = _utilitiesMaterials.SelectMaterialListBySiteName(conn, siteName);
+
+        MaterialInfo = new ArrayList<String>();
+
+        for (int i=0; i<materialList.size(); i++){
+            MaterialInfo.add("Codigo Material: "+materialList.get(i).getMaterialCode()+"\nEstado: "+materialList.get(i).getMaterialStatus());
+        }
+
+        return MaterialInfo;
+    }
+
+
+
     public ArrayList<String> MaterialCodeList(SQLiteConnectionHelper conn) {
         ArrayList<String> MaterialCodeListResult = new ArrayList<String>();
 

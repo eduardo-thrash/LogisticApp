@@ -167,4 +167,8 @@ public class TestBusinessRules {
     public int TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
         return _utilitiesTests.TestQuantityByRoom(conn, roomId).getCount();
     }
+
+    public void TestStatusUpdateByScan(SQLiteConnectionHelper conn, String testCode) {
+        _utilitiesTests.TestStatusUpdateByScan(conn, testCode);
+    }
 }
