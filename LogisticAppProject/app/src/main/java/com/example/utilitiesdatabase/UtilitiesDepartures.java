@@ -25,19 +25,14 @@ public class UtilitiesDepartures {
         ArrayList<String> InsertDepartures;
         InsertDepartures = new ArrayList<>();
 
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (1, 1, 1, 1, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (2, 1, 1, 2, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (3, 1, 1, 3, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (4, 1, 1, 4, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (5, 1, 1, 5, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (6, 1, 1, 6, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (7, 1, 1, 7, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (8, 1, 1, 8, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (9, 1, 1, 9, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (10, 2, 3, 10, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (11, 2, 5, 11, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (12, 2, 5, 12, 1)");
-        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES (13, 2, 5, 13, 1)");
+
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES ('1','2','1', '1', '1')");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES ('2','2','1', '2', '7')");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES ('3','1','2', '3', '1')");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES ('4','2','1', '4', '7')");
+        InsertDepartures.add("INSERT INTO DEPARTURES (departure_id, department_id, city_id, material_id, user_id) VALUES ('5','1','3', '5', '1')");
+
+
 
         for (int i = 0; i<InsertDepartures.size();i++){
             db.execSQL(InsertDepartures.get(i));
@@ -76,8 +71,5 @@ public class UtilitiesDepartures {
 
         db.execSQL("PRAGMA foreign_keys = OFF");
         db.execSQL("UPDATE MATERIALS SET status_id = 2 WHERE material_code = '" + materialCode + "'");
-
-        //Cursor cursor = db.rawQuery("PRAGMA foreign_keys = OFF",null);
-        //Cursor cursor2 = db.rawQuery("UPDATE MATERIALS SET status_id = 2 WHERE material_code = 'MT00000002'",null);
     }
 }

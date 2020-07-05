@@ -1,6 +1,7 @@
 package com.example.businessrules;
 
 import android.database.Cursor;
+import android.widget.Toast;
 
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesSession;
@@ -36,5 +37,21 @@ public class SessionBusinessRules {
         }
 
         return sessionUserId;
+    }
+
+    public boolean DestroySession(SQLiteConnectionHelper conn){
+
+        int sessions = ValidateSessionActive(conn);
+
+        if(_utilitiesSession.DeleteSession(conn)){
+
+            if(ValidateSessionActive(conn) == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        return false;
     }
 }

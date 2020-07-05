@@ -2,6 +2,7 @@ package com.example.utilitiesdatabase;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -20,21 +21,6 @@ public class UtilitiesNotificationMaterial {
 
         ArrayList<String> InsertNotificationMaterial;
         InsertNotificationMaterial = new ArrayList<>();
-
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(1,1,1,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(2,1,2,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(3,1,3,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(4,1,4,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(5,1,5,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(6,1,6,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(7,1,7,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(8,1,8,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(9,1,9,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(10,1,9,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(11,2,9,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(12,3,9,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(13,3,9,'descripcion de material por novedad')");
-        InsertNotificationMaterial.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_id,notification_material_type_id,material_id,notification_material_description)VALUES(14,3,9,'descripcion de material por novedad')");
 
         for (int i = 0; i<InsertNotificationMaterial.size();i++){
             db.execSQL(InsertNotificationMaterial.get(i));
@@ -63,6 +49,42 @@ public class UtilitiesNotificationMaterial {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL WHERE notification_material_type_id = 3",null);
+
+        return cursor;
+    }
+
+    public boolean CreateMaterialNotification(SQLiteConnectionHelper conn, String materialId, String materialNotificationType, String materialDescription) {
+        int notificationMaterialTypeId = Integer.parseInt(materialNotificationType);
+        int material_Id = Integer.parseInt(materialId);
+
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        ArrayList<String> InsertMaterialNotification;
+        InsertMaterialNotification = new ArrayList<>();
+
+        InsertMaterialNotification.add("INSERT INTO NOTIFICATION_MATERIAL(notification_material_type_id,material_id,notification_material_description)VALUES("+notificationMaterialTypeId+","+material_Id+",'"+materialDescription+"')");
+
+        for (int i = 0; i<InsertMaterialNotification.size();i++){
+            db.execSQL(InsertMaterialNotification.get(i));
+        }
+
+        db.close();
+
+        return true;
+    }
+
+    public Cursor SelectMissingMaterialBySite(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL NT JOIN MATERIALS M ON NT.material_id = M.material_id WHERE notification_material_type_id = 1 AND M.site_id IN (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
+
+        return cursor;
+    }
+
+    public Cursor SelectAdditionalMaterialBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_MATERIAL NT JOIN MATERIALS M ON NT.material_id = M.material_id WHERE notification_material_type_id = 2 AND M.site_id IN (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
 
         return cursor;
     }

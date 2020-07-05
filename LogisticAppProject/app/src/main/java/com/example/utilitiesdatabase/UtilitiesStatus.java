@@ -17,7 +17,6 @@ public class UtilitiesStatus {
         InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (2, 'En transito')");
         InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (3, 'Entregado en sitio')");
         InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (4, 'Entregado en salón')");
-        InsertStatus.add("INSERT INTO STATUS (status_id, status_name) VALUES (5, 'Entregado a estudiante')");
 
         for (int i = 0; i<InsertStatus.size();i++){
             db.execSQL(InsertStatus.get(i));

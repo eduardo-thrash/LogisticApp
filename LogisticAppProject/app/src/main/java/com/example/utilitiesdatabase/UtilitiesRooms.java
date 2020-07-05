@@ -2,6 +2,7 @@ package com.example.utilitiesdatabase;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -21,15 +22,58 @@ public class UtilitiesRooms {
 
         ArrayList<String> InsertRooms;
         InsertRooms = new ArrayList<>();
-        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (1,'salón 101',1)");
-        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (2,'salón 102',1)");
-        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (3,'salón 103',1)");
+
+        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (1,'A010',1)");
+        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (2,'A011',1)");
+        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (3,'1001',3)");
+        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (4,'B203',4)");
+        InsertRooms.add("INSERT INTO ROOMS (room_id,room_name,site_id) VALUES (5,'B203',2)");
 
         for (int i = 0; i<InsertRooms.size();i++){
             db.execSQL(InsertRooms.get(i));
         }
 
         db.close();
+    }
+
+
+
+    public Cursor GetRoomNameByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT room_name FROM ROOMS R JOIN SITES S ON R.site_id = S.site_id WHERE S.site_id = (SELECT M.site_id FROM MATERIALS M WHERE material_user_room = "+userRoomBossIdSession+")",null);
+
+        return cursor;
+    }
+
+    public Cursor GetRoomIdByUser(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT room_id FROM ROOMS R JOIN SITES S ON R.site_id = S.site_id WHERE S.site_id = (SELECT M.site_id FROM MATERIALS M WHERE material_user_room = "+userRoomBossIdSession+")",null);
+
+        return cursor;
+    }
+
+    public ArrayList<String> SelectRoomListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+        ArrayList<String> RoomsResult = new ArrayList<String>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT room_name FROM ROOMS WHERE site_id = (SELECT site_id FROM SITES WHERE site_name = '"+siteName+"')",null);
+
+        while(c.moveToNext()){
+            RoomsResult.add(c.getString(0));
+        }
+
+        return RoomsResult;
+    }
+
+    public Cursor SelectRoomIdByName(SQLiteConnectionHelper conn, String roomNameSelected) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT room_id FROM ROOMS WHERE room_name = '"+roomNameSelected+"'",null);
+
+        return cursor;
     }
 
     public Cursor GetRoomsBySite(SQLiteConnectionHelper conn){
@@ -40,4 +84,13 @@ public class UtilitiesRooms {
 
         return cursor;
     }
+
+    public Cursor SelectRoomsBySiteName(SQLiteConnectionHelper conn, String siteNameSiteDetail) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM ROOMS WHERE site_id = (SELECT site_id FROM SITES WHERE site_name = '"+siteNameSiteDetail+"')",null);
+
+        return cursor;
+    }
 }
+

@@ -1,6 +1,7 @@
 package com.example.businessrules;
 
 import android.database.Cursor;
+import android.widget.Toast;
 
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesUsers;
@@ -17,17 +18,21 @@ public class UserBusinessRules {
     public int UserRole;
 
     public boolean ValidateSession(SQLiteConnectionHelper conn, String userIdentification, String password){
-        Cursor cursorValidateSession = _utilitiesUsers.getUsernameAndPassword(conn, Integer.parseInt(userIdentification) , password);
+        try{
+            Cursor cursorValidateSession = _utilitiesUsers.getUsernameAndPassword(conn, Integer.parseInt(userIdentification) , password);
 
-        String user = null;
+            String user = null;
 
-        if (cursorValidateSession.moveToFirst()) {
-            user = String.valueOf(cursorValidateSession.getString(0));
-        }
+            if (cursorValidateSession.moveToFirst()) {
+                user = String.valueOf(cursorValidateSession.getString(0));
+            }
 
-        if (user!=null) {
-            return true;
-        }else{
+            if (user!=null) {
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
             return false;
         }
     }
@@ -50,5 +55,17 @@ public class UserBusinessRules {
 
     public void PasswordChange(SQLiteConnectionHelper conn, int userIdSession, String newPassword) {
         _utilitiesUsers.UpdateUserPassword(conn, userIdSession, newPassword);
+    }
+
+    public String UserNameByUser(SQLiteConnectionHelper conn, int userId) {
+        Cursor cursorUserNameByUser = _utilitiesUsers.GetUserNameByUser(conn, userId);
+
+        String UserName = null;
+
+        if (cursorUserNameByUser.moveToFirst()) {
+            UserName = String.valueOf(cursorUserNameByUser.getString(0));
+        }
+
+        return UserName;
     }
 }

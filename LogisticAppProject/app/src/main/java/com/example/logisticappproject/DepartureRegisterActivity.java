@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.businessrules.CityBusinessRules;
 import com.example.businessrules.DepartmentBusinessRules;
 import com.example.businessrules.DepartureBusinessRules;
+import com.example.businessrules.MaterialBusinessRules;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class DepartureRegisterActivity extends AppCompatActivity implements Depa
 
     DepartmentBusinessRules department = new DepartmentBusinessRules();
     DepartureBusinessRules departure = new DepartureBusinessRules();
+    MaterialBusinessRules _materialBusinessRules = new MaterialBusinessRules();
     CityBusinessRules city;
 
     ArrayList<String> DepartmentList = new ArrayList<String>();
@@ -136,15 +138,18 @@ public class DepartureRegisterActivity extends AppCompatActivity implements Depa
 
     @Override
     public void onButtonClick(int id) {
-
         if(id == R.id.btn_accept){
-            departure.MaterialStatusUpdate(conn, GeneralMaterialCode);
-            DepartureList(CityGeneralName);
-            Toast.makeText(getApplicationContext(),GeneralMaterialCode + " actualizado.",Toast.LENGTH_SHORT).show();
-        }
+            String statusCodeName = _materialBusinessRules.MaterialStatusByMaterialCode(conn, GeneralMaterialCode);
 
+            if(statusCodeName.equals("En despacho")){
+                departure.MaterialStatusUpdate(conn, GeneralMaterialCode);
+                DepartureList(CityGeneralName);
+                Toast.makeText(getApplicationContext(),GeneralMaterialCode + " actualizado.",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(),GeneralMaterialCode + " fue despachado anteriormente.",Toast.LENGTH_LONG).show();
+            }
+        }
         if(id == R.id.btn_cancel){
         }
-
     }
 }

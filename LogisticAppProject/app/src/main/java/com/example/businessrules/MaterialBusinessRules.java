@@ -5,9 +5,13 @@ import android.database.Cursor;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 import com.example.utilitiesdatabase.UtilitiesMaterials;
 
+import java.util.ArrayList;
+
 public class MaterialBusinessRules {
 
     UtilitiesMaterials _utilitiesMaterials = new UtilitiesMaterials();
+
+    ArrayList<String> MaterialInfo;
 
     public int IdSite;
     public int IdUser;
@@ -117,5 +121,70 @@ public class MaterialBusinessRules {
         }
 
         return testStatusByMaterialCode;
+    }
+
+    public ArrayList<String> MaterialListByUser(SQLiteConnectionHelper conn, int userId) {
+
+        ArrayList<MaterialBusinessRules> materialList = _utilitiesMaterials.GetMaterialListByUser(conn, userId);
+
+        MaterialInfo = new ArrayList<String>();
+
+        for (int i=0; i<materialList.size(); i++){
+            MaterialInfo.add("Codigo Material: "+materialList.get(i).getMaterialCode()+"\nEstado: "+materialList.get(i).getMaterialStatus());
+        }
+
+        return MaterialInfo;
+    }
+
+    public ArrayList<String> GetMaterialListBySiteName(SQLiteConnectionHelper conn, String siteName) {
+
+        ArrayList<MaterialBusinessRules> materialList = _utilitiesMaterials.SelectMaterialListBySiteName(conn, siteName);
+
+        MaterialInfo = new ArrayList<String>();
+
+        for (int i=0; i<materialList.size(); i++){
+            MaterialInfo.add("Codigo Material: "+materialList.get(i).getMaterialCode()+"\nEstado: "+materialList.get(i).getMaterialStatus());
+        }
+
+        return MaterialInfo;
+    }
+
+
+
+    public ArrayList<String> MaterialCodeList(SQLiteConnectionHelper conn) {
+        ArrayList<String> MaterialCodeListResult = new ArrayList<String>();
+
+        Cursor cursorMaterialCodeList = _utilitiesMaterials.GetMaterialCodeList(conn);
+
+        MaterialCodeListResult.add("Seleccione");
+        while (cursorMaterialCodeList.moveToNext()) {
+            MaterialCodeListResult.add(cursorMaterialCodeList.getString(0));
+        }
+
+        return MaterialCodeListResult;
+    }
+
+    public String InfoStatusByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorInfoStatusByMaterialCode = _utilitiesMaterials.GetInfoStatusByMaterialCode(conn, materialCode);
+
+        String materialCodeStatus = null;
+
+        if (cursorInfoStatusByMaterialCode.moveToFirst()) {
+            materialCodeStatus = String.valueOf(cursorInfoStatusByMaterialCode.getString(0));
+        }
+
+        return materialCodeStatus;
+    }
+
+    public String InfoMaterialIdByMaterialCode(SQLiteConnectionHelper conn, String materialCode) {
+        Cursor cursorInfoMaterialIdByMaterialCode = _utilitiesMaterials.GetInfoMaterialIdByMaterialCode(conn, materialCode);
+
+        String materialId = null;
+
+        if (cursorInfoMaterialIdByMaterialCode.moveToFirst()) {
+            materialId = String.valueOf(cursorInfoMaterialIdByMaterialCode.getString(0));
+        }
+
+        return materialId;
     }
 }

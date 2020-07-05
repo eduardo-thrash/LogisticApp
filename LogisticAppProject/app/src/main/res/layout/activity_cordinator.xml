@@ -1,103 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CordinatorActivity">
 
-    <Button
-        android:id="@+id/bSalir2"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@android:drawable/ic_lock_power_off"
-
-        android:text="Salir"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bCambiarContrasena2"
-        app:layout_constraintVertical_bias="0.004" />
-
-    <Button
-        android:id="@+id/bCambiarContrasena2"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_manage"
-        android:onClick="PasswordChangeActivity"
-        android:text="Cambiar Contraseña"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bAyuda" />
-
-    <Button
-        android:id="@+id/bAyuda"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-
-        android:drawableLeft="@android:drawable/ic_menu_directions"
-        android:onClick="HelpActivity"
-        android:text="Ayuda"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bCambiarContrasena"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bConsultarNvedadesSitio"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <Button
-        android:id="@+id/bConsultarSitioCoo"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_day"
-        android:onClick="SiteSearchActivity"
-        android:text="Consultar Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bConsultarNvedadesSitio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeCoordinador" />
-
-    <Button
-        android:id="@+id/bConsultarNvedadesSitio"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="369dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:drawableLeft="@android:drawable/ic_menu_edit"
-        android:onClick="RoomNotification"
-        android:text="Consultar Novedades del  Sitio"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bAyuda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tMensajeDelegado" />
-
-    <TextView
-        android:id="@+id/tMensajeCoordinador"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="40dp"
-        android:text="ROL: Coordinador"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bConsultarSitioCoo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lbl_coordinator_menu_title"
+            style="@style/Widget.AppCompat.TextView.SpinnerItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#082F59"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="COORDINADOR"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#0F2983"
+            android:textStyle="bold"
+            android:padding="20dp"/>
+
+        <Button
+            android:id="@+id/btn_coordinator_site_search_option"
+            android:layout_below="@+id/lbl_coordinator_menu_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/ic_menu_set_as"
+            android:text="CONSULTAR SITIO"
+            android:onClick="SiteSearchActivity"
+            />
+
+        <Button
+            android:id="@+id/btn_coordinator_help_option"
+            android:layout_below="@+id/btn_coordinator_site_search_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/checkbox_on_background"
+            android:text="AYUDA"
+            android:onClick="HelpActivity"
+            />
+
+        <Button
+            android:id="@+id/btn_coordinator_change_password_option"
+            android:layout_below="@+id/btn_coordinator_help_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/checkbox_on_background"
+            android:text="CAMBIAR CONTRASEÑA"
+            android:onClick="PasswordChangeActivity"/>
+
+        <Button
+            android:id="@+id/btn_coordinator_close_session_option"
+            android:layout_below="@+id/btn_coordinator_change_password_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="#125EAF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:drawableLeft="@android:drawable/checkbox_on_background"
+            android:text="SALIR"
+            android:onClick="CoordinatorLogout"/>
+
+    </RelativeLayout>
+
+</ScrollView>

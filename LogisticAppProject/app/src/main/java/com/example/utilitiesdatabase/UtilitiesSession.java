@@ -50,4 +50,15 @@ public class UtilitiesSession {
 
         return cursor;
     }
+
+    public boolean DeleteSession(SQLiteConnectionHelper conn) {
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        db.execSQL("PRAGMA foreign_keys = OFF");
+        db.execSQL("DELETE FROM SESSION");
+
+        db.close();
+
+        return true;
+    }
 }

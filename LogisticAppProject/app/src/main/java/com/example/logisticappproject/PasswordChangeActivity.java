@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.businessrules.SessionBusinessRules;
@@ -14,7 +15,20 @@ import com.example.businessrules.UserBusinessRules;
 import com.example.logisticappproject.R;
 import com.example.utilitiesdatabase.SQLiteConnectionHelper;
 
+import java.util.regex.Pattern;
+
 public class PasswordChangeActivity extends AppCompatActivity {
+
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    "(?=.*[0-9])" +         //at least 1 digit
+                    "(?=.*[a-z])" +         //at least 1 lower case letter
+                    "(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=*])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{4,}" +               //at least 4 characters
+                    "$");
 
     SQLiteConnectionHelper conn = new SQLiteConnectionHelper(this,"bd_LogisticApp",null,1);
 
@@ -28,6 +42,7 @@ public class PasswordChangeActivity extends AppCompatActivity {
     EditText UpdateNewPassword;
     EditText ConfirmNewPassword;
     Button SavePasswordChanges;
+    TextView TextError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,7 @@ public class PasswordChangeActivity extends AppCompatActivity {
         UpdateNewPassword = findViewById(R.id.txt_update_new_password);
         ConfirmNewPassword = findViewById(R.id.txt_confirm_new_password);
         SavePasswordChanges = findViewById(R.id.btn_save_password_changes);
+        TextError = findViewById(R.id.lbl_change_password_error);
 
         SavePasswordChanges.setOnClickListener(new View.OnClickListener(){
 
@@ -47,22 +63,30 @@ public class PasswordChangeActivity extends AppCompatActivity {
 
                 userIdSession = _sessionBusinessRules.ValidateSessionActive(conn);
 
-                if(!ValidatePasswordValues(UpdateNewPasswordText, ConfirmNewPasswordText))
-                    Toast.makeText(getApplicationContext(),"Las contraseñas no coinciden",Toast.LENGTH_LONG).show();
-
-                _userBusinessRules.PasswordChange(conn, userIdSession, UpdateNewPasswordText);
-
-                Toast.makeText(getApplicationContext(),"Contraseña actualizada.",Toast.LENGTH_LONG).show();
+                if(validatePassword(UpdateNewPasswordText, ConfirmNewPasswordText)){
+                    _userBusinessRules.PasswordChange(conn, userIdSession, UpdateNewPasswordText);
+                    Toast.makeText(getApplicationContext(),"Contraseña actualizada.",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
 
-    private boolean ValidatePasswordValues(String newPassword, String newPasswordConfirm) {
+    private boolean validatePassword(String newPassword, String newPasswordConfirm) {
 
-        if(newPassword.equals(newPasswordConfirm)){
-            return true;
-        }else{
+        if (UpdateNewPasswordText.isEmpty()){
+            Toast.makeText(getApplicationContext(),"El campo no debe esta vacio",Toast.LENGTH_LONG).show();
             return false;
+
+        } else if (!PASSWORD_PATTERN.matcher(UpdateNewPasswordText).matches()) {
+            Toast.makeText(getApplicationContext(),"La contraseña no cumple las reglas.",Toast.LENGTH_LONG).show();
+            return false;
+
+        } else if (!newPassword.equals(newPasswordConfirm)){
+            Toast.makeText(getApplicationContext(),"Las contraseñas no coinciden",Toast.LENGTH_LONG).show();
+            return false;
+
+        } else {
+            return true;
         }
     }
 }

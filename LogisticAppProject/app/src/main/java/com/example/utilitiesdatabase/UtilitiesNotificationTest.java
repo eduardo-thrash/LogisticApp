@@ -3,6 +3,9 @@ package com.example.utilitiesdatabase;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.businessrules.NotificationBusinessRules;
+import com.example.businessrules.TestBusinessRules;
+
 import java.util.ArrayList;
 
 public class UtilitiesNotificationTest {
@@ -20,20 +23,6 @@ public class UtilitiesNotificationTest {
 
         ArrayList<String> InsertNotificationTest;
         InsertNotificationTest = new ArrayList<>();
-
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(1,1,1,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(2,1,2,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(3,1,3,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(4,1,4,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(5,1,5,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(6,1,6,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(7,1,7,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(8,1,8,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(9,1,9,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(10,2,10,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(11,2,11,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(12,2,12,'descripcion de examen por novedad')");
-        InsertNotificationTest.add("INSERT INTO NOTIFICATION_TEST(notification_test_id,notification_test_type_id,test_id,notification_test_description)VALUES(13,2,13,'descripcion de examen por novedad')");
 
         for (int i = 0; i<InsertNotificationTest.size();i++){
             db.execSQL(InsertNotificationTest.get(i));
@@ -85,5 +74,126 @@ public class UtilitiesNotificationTest {
         db.close();
 
         return true;
+    }
+
+    public ArrayList<NotificationBusinessRules> GetListTestNotificationByRoom(SQLiteConnectionHelper conn, int userRoomBossIdSession) {
+
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id WHERE material_user_room = (SELECT user_id FROM USERS WHERE user_id = "+userRoomBossIdSession+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+            notificationTest.setNotificationTestTypeName(cursor.getString(1));
+            notificationTest.setNotificationTestTypeDescription(cursor.getString(2));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
+    }
+
+    public ArrayList<NotificationBusinessRules> GetListNotificationByRoom(SQLiteConnectionHelper conn, int RoomId) {
+
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id where TS.room_id = (SELECT R.room_id FROM ROOMS R WHERE R.room_id = "+RoomId+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+            notificationTest.setNotificationTestTypeName(cursor.getString(1));
+            notificationTest.setNotificationTestTypeDescription(cursor.getString(2));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
+    }
+
+    public Cursor TestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST WHERE notification_test_type_id = 1 AND test_id = (SELECT test_id FROM TESTS WHERE room_id = "+IntRoomId+")",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationMissingTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 1 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationAdditionalTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 2 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationMissingParticipantsQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 4 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public Cursor GetNotificationCancelTestQuantityByRoom(SQLiteConnectionHelper conn, String roomId) {
+        int IntRoomId = Integer.parseInt(roomId);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM NOTIFICATION_TEST NT INNER JOIN TESTS TE ON NT.test_id = TE.test_id WHERE NT.notification_test_type_id = 3 AND TE.room_id = "+IntRoomId+"",null);
+
+        return cursor;
+    }
+
+    public ArrayList<NotificationBusinessRules> GetListNotificationBySite(SQLiteConnectionHelper conn, int siteId) {
+        NotificationBusinessRules notificationTest = new NotificationBusinessRules();
+        ArrayList<NotificationBusinessRules> TestList = new ArrayList<NotificationBusinessRules>();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id where MT.site_id = (SELECT S.site_id FROM SITES S WHERE S.site_id = "+siteId+")",null);
+
+        while (cursor.moveToNext()){
+            notificationTest = new NotificationBusinessRules();
+
+            notificationTest.setTestCode(cursor.getString(0));
+
+            TestList.add(notificationTest);
+        }
+
+        return TestList;
+    }
+
+    public Cursor SelectNotificationTestDetail(SQLiteConnectionHelper conn, String testCodeNotification) {
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT TS.test_code, TY.notification_test_type_name, NT.notification_test_description FROM NOTIFICATION_TEST NT INNER JOIN TESTS TS ON NT.test_id = TS.test_id INNER JOIN MATERIALS MT ON TS.test_material_id = MT.material_id INNER JOIN NOTIFICATION_TEST_TYPE TY ON NT.notification_test_type_id = TY.notification_test_type_id WHERE TS.test_code = '"+testCodeNotification+"'",null);
+
+        return cursor;
     }
 }

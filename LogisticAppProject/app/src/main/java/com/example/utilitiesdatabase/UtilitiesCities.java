@@ -16,15 +16,9 @@ public class UtilitiesCities {
         ArrayList<String> InsertCities;
         InsertCities = new ArrayList<>();
 
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (1, 'Bogota', 1)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (2, 'Soacha', 1)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (3, 'Medellin', 2)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (4, 'Chia', 1)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (5, 'RioNegro', 2)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (6, 'Madrid', 1)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (7, 'Cali', 3)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (8, 'Barranquilla', 6)");
-        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (9, 'Cartagena', 5)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (1, 'Bogota',2)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (2, 'Medellin',1)");
+        InsertCities.add("INSERT INTO CITIES (city_id, city_name, department_id) VALUES (3, 'Bello',1)");
 
         for (int i = 0; i<InsertCities.size();i++){
             db.execSQL(InsertCities.get(i));

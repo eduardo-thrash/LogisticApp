@@ -17,15 +17,8 @@ public class UtilitiesDepartments {
         ArrayList<String> InsertDepartments;
         InsertDepartments = new ArrayList<>();
 
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Cundinamarca')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Antioquia')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Valle del cauca')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Nariño')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Bolivar')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Atlantico')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Leticia')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Meta')");
-        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_name) VALUES ('Santander')");
+        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id, 	department_name) VALUES (1,'Antioquia')");
+        InsertDepartments.add("INSERT INTO DEPARTMENTS (department_id, 	department_name) VALUES (2,'Cundinamarca')");
 
         for (int i = 0; i<InsertDepartments.size();i++){
             db.execSQL(InsertDepartments.get(i));
