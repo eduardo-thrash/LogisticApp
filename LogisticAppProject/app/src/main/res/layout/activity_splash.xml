@@ -10,6 +10,6 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/icono_app_logistic_v2" />
+        app:srcCompat="@drawable/thumbnail_icono_app_logistic_v4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
