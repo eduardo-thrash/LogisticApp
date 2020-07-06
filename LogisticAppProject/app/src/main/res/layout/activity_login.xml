@@ -10,13 +10,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/thumbnail_icono_app_logistic_v4" />
+
         <EditText
             android:id="@+id/txt_login_username"
+            android:layout_below="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Usuario"
             android:inputType="number|textPersonName"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="50dp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/txt_login_password"
@@ -33,10 +43,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_login_password"
-
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="login" />
+            android:text="login"
+            android:textColor="#FFFFFF"
+            android:background="#082F59"
+            />
 
     </RelativeLayout>
 
