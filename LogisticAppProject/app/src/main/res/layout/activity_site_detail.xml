@@ -142,43 +142,10 @@
         android:gravity="center_horizontal|center_vertical"
         android:hint="_"
         android:textColor="#454141"
-
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_missing_material_detail" />
-
-    <TextView
-        android:id="@+id/lbl_site_detail_room_number_title"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="6dp"
-        android:background="#0D3557"
-        android:gravity="center_vertical"
-        android:text="  Número salones"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_additional_material_title" />
-
-    <TextView
-        android:id="@+id/lbl_site_detail_room_number_detail"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#DFDFDF"
-        android:gravity="center_horizontal|center_vertical"
-        android:hint="_"
-        android:textColor="#454141"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_additional_material_detail" />
 
     <TextView
         android:id="@+id/lbl_site_detail_participants"
@@ -194,7 +161,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_room_number_title" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_additional_material_title" />
 
     <TextView
         android:id="@+id/lbl_site_detail_participants_detail"
@@ -210,7 +177,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_room_number_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_site_detail_additional_material_detail" />
 
     <TextView
         android:id="@+id/lbl_site_detail_present_participants_title"

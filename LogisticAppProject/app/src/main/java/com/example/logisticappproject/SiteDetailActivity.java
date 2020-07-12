@@ -25,7 +25,6 @@ public class SiteDetailActivity extends AppCompatActivity {
     TextView SiteDetailRoomQuantityDetail;
     TextView SiteDetailMissingMaterialDetail;
     TextView SiteDetailAdditionalMaterialDetail;
-    TextView SiteDetailRoomNumberDetail;
     TextView SiteDetailParticipants;
     TextView SiteDetailParticipantsPresentDetail;
     TextView SiteDetailMissingParticipantsDetail;
@@ -80,7 +79,6 @@ public class SiteDetailActivity extends AppCompatActivity {
         SiteDetailRoomQuantityDetail = findViewById(R.id.lbl_site_detail_room_quantity_detail);
         SiteDetailMissingMaterialDetail = findViewById(R.id.lbl_site_detail_missing_material_detail);
         SiteDetailAdditionalMaterialDetail = findViewById(R.id.lbl_site_detail_additional_material_detail);
-        SiteDetailRoomNumberDetail = findViewById(R.id.lbl_site_detail_room_number_detail);
         SiteDetailParticipants= findViewById(R.id.lbl_site_detail_participants_detail);
         SiteDetailParticipantsPresentDetail= findViewById(R.id.lbl_site_detail_present_participants_detail);
         SiteDetailMissingParticipantsDetail = findViewById(R.id.lbl_site_missing_participant_detail);

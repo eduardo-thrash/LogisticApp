@@ -121,7 +121,11 @@
             android:layout_below="@+id/lbl_material_detail_status_title"
             android:layout_marginTop="2dp"
             android:layout_marginLeft="30dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:background="#064508"
+            android:width="150dp"
+            android:height="20dp"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/lbl_material_detail_room_boss_title"

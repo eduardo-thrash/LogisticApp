@@ -23,10 +23,6 @@
             android:textStyle="bold"
             android:padding="20dp"/>
 
-
-
-
-
         <TextView
             android:id="@+id/lbl_test_detail_code_title"
             android:layout_width="wrap_content"
@@ -45,14 +41,11 @@
             android:layout_below="@+id/lbl_test_detail_code_title"
             android:layout_marginTop="2dp"
             android:layout_marginLeft="30dp"
-            android:textStyle="bold"/>
-
-
-
-
-
-
-
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:width="150dp"
+            android:height="20dp"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/lbl_test_detail_site_name_title"
